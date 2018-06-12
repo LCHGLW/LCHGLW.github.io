@@ -1,571 +1,438 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Hexo
+  </title>
+  <meta name="description" content="">
   
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+  <meta name="author" content="John Doe">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
   
-  
-    <link rel="icon" href="/http://oayoilchh.bkt.clouddn.com/2016/07/27/18:05:26%20">
-  
-  
-      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <!-- 加载特效 -->
-    <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
-  <script>
-      var yiliaConfig = {
-          rootUrl: '/',
-          fancybox: true,
-          animate: true,
-          isHome: true,
-          isPost: false,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 </head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="img/head.jpg" class="js-avatar">
-            
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">John Doe</a></h1>
-        </hgroup>
-        
-        
-            <form>
-                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
-            </form>
-            <div id="local-search-result"></div>
-        
-        
-            <script type="text/javascript">
-                (function() {
-                    'use strict';
-                    function getMatchData(keyword, data) {
-                        var matchData = [];
-                        for(var i =0;i<data.length;i++){
-                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
-                                matchData.push(data[i])
-                        }
-                        return matchData;
-                    }
-                    var $input = $('#local-search-input');
-                    var $resultContent = $('#local-search-result');
-                    $input.keyup(function(){
-                        $.ajax({
-                            url: '/search.json',
-                            dataType: "json",
-                            success: function( json ) {
-                                var str='<ul class=\"search-result-list\">';                
-                                var keyword = $input.val().trim().toLowerCase();
-                                $resultContent.innerHTML = "";
-                                if ($input.val().trim().length <= 0) {
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                }
-                                var results = getMatchData(keyword, json);
-                                if(results.length === 0){
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                } 
-                                for(var i =0; i<results.length; i++){
-                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
-                                }
-                                str += "</ul>";
-                                $resultContent.empty();
-                                $resultContent.append(str);
-                                $('#switch-area').hide();
-                            }
-                        });
-                    });
-                })();
-            </script>
-        
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a  href="http://bestwing.me">博客首页</a></li>
-                        
-                            <li><a  href="/archives">文章归档</a></li>
-                        
-                            <li><a  href="/CTFStudy">学习导航</a></li>
-                        
-                            <li><a  href="/PWNABLE">PWNABLE</a></li>
-                        
-                            <li><a  href="/resume">个人简历</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fl mail"  target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=kvH99PT39-Dn_efS5PvivOPjvPH9-w" title="mail">mail</a>
-                            
-                                <a class="fl github"  target="_blank" href="https://github.com/WinMin" title="github">github</a>
-                            
-                                <a class="fl zhihu"  target="_blank" href="https://www.zhihu.com/people/Swings" title="zhihu">zhihu</a>
-                            
-                                <a class="fl weibo"  target="_blank" href="http://weibo.com/2672317963/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
-                            
-                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        
-                    </div>
-                </section>
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://ring3.xyz/">Yllen</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://mxny.org/">麦香浓郁</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://whereisk0shl.top/">K0sh1</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.ycjcl.cc/">信鑫</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://bystudent.com/">ByStundet表哥</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.jarviswang.me/">汪神_Jarvis</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://sh3ll.me/">Chu</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.hackfun.org/">4ido10n</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/iamstudy">L3m0n</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://o0xmuhe.me/">muhe</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.nuptzj.cn/">_画船听雨</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.virzz.com/index.html">Virink</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.sqlsec.com/">国光</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.bodkin.ren/">老锥</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.cizel.cn/">C1zel</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://1phan.cc">1phan</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.liuil.top/">liuil</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/Ox9A82/">Ox9A82</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://burnegg.com/">burnegg</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://jwrsec.cn/">jwr-sec</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://sudalover.cn/">苏打</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.binklac.com">VeroFess</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.bendawang.site/">bendawang</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://weeklyalgo.codes/">hook</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.flier.net.cn/">Flier&#39;blog</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.mutepig.club">mutepig</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://blog.iret.xyz/list.aspx">Silver</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://simp1e.leanote.com/">Simple</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://processor.pub/">Processor</a>
-                    
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">一只淹死在二进制海洋里的二进制狗</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>
-</div>
 
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">John Doe</a></h1>
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
       </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="Me">John Doe</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="http://bestwing.me">博客首页</a></li>
-                
-                    <li><a href="/archives">文章归档</a></li>
-                
-                    <li><a href="/CTFStudy">学习导航</a></li>
-                
-                    <li><a href="/PWNABLE">PWNABLE</a></li>
-                
-                    <li><a href="/resume">个人简历</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=kvH99PT39-Dn_efS5PvivOPjvPH9-w" title="mail">mail</a>
-                    
-                        <a class="github" target="_blank" href="https://github.com/WinMin" title="github">github</a>
-                    
-                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Swings" title="zhihu">zhihu</a>
-                    
-                        <a class="weibo" target="_blank" href="http://weibo.com/2672317963/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
-                    
-                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-                    
-                </div>
-            </nav>
-        </header>                
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-写在前面" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/06/11/写在前面/" class="article-date">
-      <time datetime="2018-06-11T05:47:55.000Z" itemprop="datePublished">2018-06-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/11/写在前面/">写在前面</a>
-    </h1>
+
+<div class="main-container">
   
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p>这是一个基于hexo的静态markdown博客（踩坑之后），用于积累，记录点滴</p>
-<hr>
-<h2 id="关于个人"><a href="#关于个人" class="headerlink" title="关于个人"></a>关于个人</h2><p>芸芸众生中的一个，还在路上</p>
-<hr>
-<h2 id="兴趣与专长"><a href="#兴趣与专长" class="headerlink" title="兴趣与专长"></a>兴趣与专长</h2><p>博爱，雨露均沾，技术面杂而不精，也还在路上</p>
-<hr>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>网站架构师/独立开发者</li>
-<li>财务自由</li>
-<li>创造自己的价值</li>
-</ul>
+<div class="container-lg">
+  
 
-      
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://octodex.github.com/images/baracktocat.jpg">
+    <div class="user-name">
+      <div class="blog-title">Hexo</div>
+      <div class="blog-author">John Doe</div>
+        <ul class="user-detail mobile-only">
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="http://yoursite.com">http://yoursite.com</a>
+    </li>
+  </ul>
+    </div>
+    <div class="blog-description">
       
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
-  
-</article>
 
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/06/11/hello-world/" class="article-date">
-      <time datetime="2018-06-11T05:37:17.920Z" itemprop="datePublished">2018-06-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+  <ul class="user-detail desktop-only">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/11/hello-world/">Hello World</a>
-    </h1>
-  
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="http://yoursite.com">http://yoursite.com</a>
+    </li>
+  </ul>
 
-      </header>
+  <div class="social-media desktop-only">
+    <h4>Social Media</h4>
+    <ul>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a  href="/2018/06/11/hello-world/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+    </ul>
   </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
 </div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2018 John Doe
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="http://bestwing.me" target="_blank">Sw'blog</a> by Swing
-            </div>
+
+
+  <div class="blog-detail">
+    
+<nav class="blog-detail-nav desktop-only">
+  <ul class="clearfix">
+    <li class="selected">
+      <a href="/">Overview</a></li>
+    <li class="">
+      <a href="/archives">Posts <span class="counter">2</span></a>
+    </li>
+    <li class="">
+      <a href="/categories">Categories <span
+                class="counter">0</span></a></li>
+    <li class="">
+      <a href="/tags">Tags <span class="counter">0</span></a></li>
+  </ul>
+</nav>
+
+    <div class="body-secondary">
+      <p class="right-title">Recent post</p>
+      <ul class="recent-post clearfix">
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/2018/06/11/写在前面/">写在前面</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+                 关于博客  这是一个基于hexo的静态markdown博客（踩坑之后），用于积累，记录点滴 
+
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                
+                  <i class="fa fa-folder-open"></i> Uncategorized
+                
+              </span>
+              <span><i class="fa fa-tag"></i> 0 </span>
+            </p>
+          </div>
+        </li>
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/2018/06/11/hello-world/">Hello World</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+               Welcome to  Hexo ! This is your very first post. 
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                
+                  <i class="fa fa-folder-open"></i> Uncategorized
+                
+              </span>
+              <span><i class="fa fa-tag"></i> 0 </span>
+            </p>
+          </div>
+        </li>
+        
+      </ul>
+      <div class="calendar-container" id="calendar">
+  <div class="calendar">
+    <h3>
+      {{posts.length}} contributions in the last year
+    </h3>
+    <div class="calendar-graph-container">
+      <div class="calendar-graph">
+        <svg width="676" height="104" @mouseout="mouseoverDate=null">
+          <g transform="translate(16, 20)">
+            <g v-for="week in calendar" :transform="week.transform">
+              <rect v-for="day in week.days"
+                    :x="day.x"
+                    :y="day.y"
+                    :fill="day.fill"
+                    @click="selectedDate=day.date"
+                    @mouseover="mouseoverDate=day.date"
+                    :class="{active:selectedDate===day.date}"
+                    data-count="{{day.posts.length}}"
+                    data-date="{{day.date}}"
+                    class="day" width="10" height="10"
+              ></rect>
+            </g>
+
+            <text v-for="month in monthLabels"
+                  :x="month.x"
+                  y="-5"
+                  class="month">{{month.text}}
+            </text>
+
+
+            <text text-anchor="start" class="wday" dx="-14" dy="8"
+                  style="display: none;">S
+            </text>
+            <text text-anchor="start" class="wday" dx="-14" dy="20">Mon</text>
+            <text text-anchor="start" class="wday" dx="-14" dy="32"
+                  style="display: none;">T
+            </text>
+            <text text-anchor="start" class="wday" dx="-14" dy="44">Wed</text>
+            <text text-anchor="start" class="wday" dx="-14" dy="57"
+                  style="display: none;">T
+            </text>
+            <text text-anchor="start" class="wday" dx="-14" dy="69">Fri</text>
+            <text text-anchor="start" class="wday" dx="-14" dy="81"
+                  style="display: none;">S
+            </text>
+          </g>
+        </svg>
+        <div class="svg-tip svg-tip-one-line"
+             v-bind:style="{ top: svgtip.top, left: svgtip.left, display: svgtip.display}">
+          <strong>{{svgtip.text}}</strong> on
+          {{moment(mouseoverDate).format('MMM DD, YYYY')}}
         </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >海贼到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
+      </div>
+      <div class="calendar-footer clearfix">
+      <span>
+        <a href="#">Learn how we count contributions.</a>
+      </span>
+        <div class="calendar-legend">
+          <span>Less</span>
+          <ul class="legend">
+            <li style="background-color: #eee"></li>
+            <li style="background-color: #d6e685"></li>
+            <li style="background-color: #8cc665"></li>
+            <li style="background-color: #44a340"></li>
+            <li style="background-color: #1e6823"></li>
+          </ul>
+          <span>More</span>
+        </div>
+      </div>
     </div>
-</footer>
+  </div>
 
-    </div>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var backgroundnum = 24;
-            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-        })
-    </script>
-
-
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+  <h3>Contribution activity</h3>
+  <div class="contribution-list">
+    <ul>
+      <li v-for="post in posts | filterBy selectedDate in 'date'">
+        <a href="{{post.url}}">{{post.title}}
+        </a>
+        <span>{{post.date}}</span>
+      </li>
+    </ul>
+  </div>
 </div>
+
+
 <script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
+  var posts = [{"date":"2018-06-11","title":"Hello World","url":"http://yoursite.com/2018/06/11/hello-world/"},{"date":"2018-06-11","title":"写在前面","url":"http://yoursite.com/2018/06/11/写在前面/"}];
+  var today = moment().format('YYYY-MM-DD');
+  var oneYearAgo = moment(today).subtract(1, 'years');
+  posts = posts.filter(function(post) {
+    return new Date(post.date) > oneYearAgo;
+  });
+  var monthLabels = [];
+  var monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var calendar = getCalendar(posts);
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+  var dateRange = {
+    start: moment(oneYearAgo).format('MMM D, YYYY'),
+    end: moment().format('MMM D, YYYY')
+  }
 
-  <script language="javascript">
-    $(function() {
-        $("a[title]").each(function() {
-            var a = $(this);
-            var title = a.attr('title');
-            if (title == undefined || title == "") return;
-            a.data('title', title).removeAttr('title').hover(
-
-            function() {
-                var offset = a.offset();
-                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
-                    top: offset.top - a.outerHeight() - 15,
-                    left: offset.left + a.outerWidth()/2 + 1
-                }).fadeIn(function() {
-                    var pop = $(this);
-                    setTimeout(function() {
-                        pop.remove();
-                    }, pop.text().length * 800);
-                });
-            }, function() {
-                $("#anchortitlecontainer").remove();
-            });
-        });
-    });
-</script>
-
-
-    <script type="text/javascript">
-      window.onload = function(){
-        document.getElementById("search").onclick = function(){
-            console.log("search")
-            search();
+  var app = new Vue({
+    el: '#calendar',
+    data: {
+      posts: posts,
+      selectedDate: null,
+      calendar: calendar,
+      dateRange: dateRange,
+      mouseoverDate: null,
+      moment: moment,
+      monthLabels: monthLabels
+    },
+    created: function() {
+      this.selectedDate = 'none';
+    },
+    methods: {},
+    computed: {
+      svgtip: function() {
+        var date = this.mouseoverDate;
+        var display = date ? 'block' : 'none';
+        if (date) {
+          var coordinator = getIndexByDate(date);
+          var x = coordinator[0];
+          var y = coordinator[1];
+          var len = this.calendar[x].days[y].posts.length;
+          var text = len ? len + ' contributions' : 'No contributions';
+          var left = coordinator[0] * 12 - 37 + 'px';
+          coordinator[1] = coordinator[0] ? coordinator[1] : coordinator[1] + oneYearAgo.day();
+          var top = coordinator[1] * 12 + 12 - 32 + 'px';
+        }
+        return {
+          text: text,
+          left: left,
+          top: top,
+          display: display
         }
       }
-      function search(){
-        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+    }
+  });
 
-        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+  function getCalendar(posts) {
+    // raw calendar
+    var maxCount = 0;
+    var tmr = new Date();
+    tmr.setDate(tmr.getDate() + 1);
+    var tmrStr = tmr.toISOString().slice(0, 10);
+    var date = new Date();
+    date.setYear(date.getFullYear() - 1); // start date is a year ago;
+    var calendar = [];
+    while (date.toISOString().slice(0, 10) !== tmrStr) {
+      var day = date.getDay();
+      if (day === 0 || calendar.length === 0) {
+        var x = calendar.length * 13;
+        calendar.push({
+          transform: 'translate(' + x + ',0)',
+          days: []
+        })
       }
-    </script>
 
+      calendar[calendar.length - 1].days.push({
+        x: 14 - calendar.length,
+        y: day * 12,
+        date: date.toISOString().slice(0, 10),
+        posts: []
+      });
+
+      if (day === 0 && date.getDate() < 8) {
+        monthLabels.push({
+          x: 14 - calendar.length + x,
+          text: monthName[date.getMonth() - 1]
+        })
+      }
+
+      date.setDate(date.getDate() + 1);
+    }
+
+    // handle post info
+    posts.forEach(function(post) {
+      var x = getIndexByDate(post.date)[0];
+      var y = getIndexByDate(post.date)[1];
+
+      calendar[x].days[y].posts.push({
+        title: post.title,
+        url: post.url
+      });
+
+      var len = calendar[x].days[y].posts.length;
+      maxCount = Math.max(len, maxCount);
+    })
+
+    // handle fill color
+    calendar.forEach(function(week) {
+      week.days.forEach(function(day) {
+        day.fill = getColorByLength(day.posts.length, maxCount);
+      })
+    })
+
+    return calendar;
+  }
+
+  function getIndexByDate(date) {
+    date = moment(date);
+    var firstColumnLen = 7 - oneYearAgo.day();
+    var days = date.diff(oneYearAgo, 'days');
+
+    var x = days > firstColumnLen - 1 ? Math.ceil((days - firstColumnLen + 1) / 7) : 0;
+    var y = days > firstColumnLen - 1 ? date.day() : date.day() - oneYearAgo.day();
+    return [x, y];
+  }
+
+  function getColorByLength(len, max) {
+    var colors = ['#eee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
+    var colorsLen = colors.length - 1;
+    var color = len ? colors[0] : colors[1];
+    var interval = max / colorsLen;
+    if (max < colorsLen) {
+      color = colors[len];
+    } else {
+      color = colors[Math.ceil(len / interval)];
+    }
+    return color;
+  }
+
+</script>
+
+
+    </div>
   </div>
+</div>
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://yoursite.com" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2018 John Doe</li>
+      <li><a href="http://yoursite.com">Home</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
 </body>
 </html>
