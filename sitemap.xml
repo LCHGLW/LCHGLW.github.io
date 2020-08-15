@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.imlch.cn/2018/06/11/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/</loc>
+    <loc>http://blog.imlch.cn/2020/08/15/leetcode100/</loc>
+    
+    <lastmod>2020-08-15T09:48:26.695Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.imlch.cn/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2.html</loc>
     
     <lastmod>2018-06-11T13:03:26.426Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.imlch.cn/2018/06/11/hello-world/</loc>
+    <loc>http://blog.imlch.cn/hello-world.html</loc>
     
     <lastmod>2018-06-11T12:59:13.315Z</lastmod>
     
