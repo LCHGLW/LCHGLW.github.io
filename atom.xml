@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.imlch.cn/"/>
-  <updated>2020-08-15T10:40:33.416Z</updated>
+  <updated>2020-08-19T07:48:32.977Z</updated>
   <id>http://blog.imlch.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://blog.imlch.cn/2020/08/19/ATM/"/>
+    <id>http://blog.imlch.cn/2020/08/19/ATM/</id>
+    <published>2020-08-19T07:48:32.975Z</published>
+    <updated>2020-08-19T07:48:32.977Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="ATM"><a href="#ATM" class="headerlink" title="ATM"></a>ATM</h2><p>项目说明文档</p><h2 id="项目基本功能"><a href="#项目基本功能" class="headerlink" title="项目基本功能"></a>项目基本功能</h2><hr><p>当前的ATM系统模拟实现银行ATM机的操作功能</p><ul><li>注册</li><li>查询</li><li>存款</li><li>取款</li><li>转账</li><li>改密</li><li>锁定</li><li>解锁</li><li>补卡</li><li>退出</li></ul><h2 id="项目基本结构"><a href="#项目基本结构" class="headerlink" title="项目基本结构"></a>项目基本结构</h2><p>│  main.py<br>│  tree.txt<br>│<br>├─database<br>│      user.txt<br>│      userid.txt<br>│<br>└─package<br>    │  card.py<br>    │  operation.py<br>    │  person.py<br>    │  view.py<br>    │  <strong>init</strong>.py<br>    │<br>    └─<strong>pycache</strong><br>            card.cpython-36.pyc<br>            card.cpython-37.pyc<br>            operation.cpython-36.pyc<br>            operation.cpython-37.pyc<br>            person.cpython-36.pyc<br>            person.cpython-37.pyc<br>            view.cpython-36.pyc<br>            view.cpython-37.pyc<br>            <strong>init</strong>.cpython-36.pyc<br>            <strong>init</strong>.cpython-37.pyc</p><h2 id="迭代计划"><a href="#迭代计划" class="headerlink" title="迭代计划"></a>迭代计划</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;ATM&quot;&gt;&lt;a href=&quot;#ATM&quot; class=&quot;headerlink&quot; title=&quot;ATM&quot;&gt;&lt;/a&gt;ATM&lt;/h2&gt;&lt;p&gt;项目说明文档&lt;/p&gt;
+&lt;h2 id=&quot;项目基本功能&quot;&gt;&lt;a href=&quot;#项目基本功能&quot; class=&quot;headerlink&quot; ti
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>

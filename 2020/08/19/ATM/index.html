@@ -5,17 +5,17 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##整体思路  两个树相同，中根遍历肯定相同；中根遍历相同，两个树就一定相同？不一定，比如这种情况，中根遍历都是 [1,2]  123输入:      1          1          /           \         2             2  如果中根遍历，先根遍历，后根遍历均相同，那肯定是相同的树。但遍历 3 遍，时间复杂度太高。这道题是简单，显然不会这么复杂  中">
+  <meta name="description" content="ATM项目说明文档 项目基本功能 当前的ATM系统模拟实现银行ATM机的操作功能  注册 查询 存款 取款 转账 改密 锁定 解锁 补卡 退出  项目基本结构│  main.py│  tree.txt│├─database│      user.txt│      userid.txt│└─package    │  card.py    │  operation.py    │  person.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://blog.imlch.cn/2020/08/15/LeetCode100/index.html">
+<meta property="og:url" content="http://blog.imlch.cn/2020/08/19/ATM/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##整体思路  两个树相同，中根遍历肯定相同；中根遍历相同，两个树就一定相同？不一定，比如这种情况，中根遍历都是 [1,2]  123输入:      1          1          /           \         2             2  如果中根遍历，先根遍历，后根遍历均相同，那肯定是相同的树。但遍历 3 遍，时间复杂度太高。这道题是简单，显然不会这么复杂  中">
+<meta property="og:description" content="ATM项目说明文档 项目基本功能 当前的ATM系统模拟实现银行ATM机的操作功能  注册 查询 存款 取款 转账 改密 锁定 解锁 补卡 退出  项目基本结构│  main.py│  tree.txt│├─database│      user.txt│      userid.txt│└─package    │  card.py    │  operation.py    │  person.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-15T09:57:38.461Z">
+<meta property="og:updated_time" content="2020-08-19T07:48:32.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="##整体思路  两个树相同，中根遍历肯定相同；中根遍历相同，两个树就一定相同？不一定，比如这种情况，中根遍历都是 [1,2]  123输入:      1          1          /           \         2             2  如果中根遍历，先根遍历，后根遍历均相同，那肯定是相同的树。但遍历 3 遍，时间复杂度太高。这道题是简单，显然不会这么复杂  中">
+<meta name="twitter:description" content="ATM项目说明文档 项目基本功能 当前的ATM系统模拟实现银行ATM机的操作功能  注册 查询 存款 取款 转账 改密 锁定 解锁 补卡 退出  项目基本结构│  main.py│  tree.txt│├─database│      user.txt│      userid.txt│└─package    │  card.py    │  operation.py    │  person.">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -303,11 +303,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-LeetCode100" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ATM" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/08/15/LeetCode100/" class="article-date">
-      <time datetime="2020-08-15T09:39:26.995Z" itemprop="datePublished">2020-08-15</time>
+      <a href="/2020/08/19/ATM/" class="article-date">
+      <time datetime="2020-08-19T07:48:32.975Z" itemprop="datePublished">2020-08-19</time>
 </a>
     </div>
   
@@ -319,26 +319,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##整体思路</p>
+        <h2 id="ATM"><a href="#ATM" class="headerlink" title="ATM"></a>ATM</h2><p>项目说明文档</p>
+<h2 id="项目基本功能"><a href="#项目基本功能" class="headerlink" title="项目基本功能"></a>项目基本功能</h2><hr>
+<p>当前的ATM系统模拟实现银行ATM机的操作功能</p>
 <ul>
-<li>两个树相同，中根遍历肯定相同；中根遍历相同，两个树就一定相同？不一定，比如这种情况，中根遍历都是 [1,2]</li>
+<li>注册</li>
+<li>查询</li>
+<li>存款</li>
+<li>取款</li>
+<li>转账</li>
+<li>改密</li>
+<li>锁定</li>
+<li>解锁</li>
+<li>补卡</li>
+<li>退出</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入:      1          1</span><br><span class="line">          /           \</span><br><span class="line">         2             2</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>如果中根遍历，先根遍历，后根遍历均相同，那肯定是相同的树。但遍历 3 遍，时间复杂度太高。这道题是简单，显然不会这么复杂</p>
-</li>
-<li><p>中根遍历只记录非空「值」，如果将没有空节点也记录，可以通过判断遍历结果（[1,2,null], [1,null,2]）是否相同来判断两个树是否相同。解法一：通过遍历结果是否相同来判断。</p>
-</li>
-<li><p>解法二：通过两个数组是否完全相同来判断，其实也是依次判断每一个元素是否相同，如果都相同，则最终结果相同。依次判断每一个节点是否相同，相同为 true，不同为 false，存在 false，则最后结果为 false。</p>
-</li>
-</ul>
-<p>###解法一：通过判断遍历结果是否相同<br>时间复杂度：O(N)，递归栈的深度为节点的数量（N）<br>空间复杂度：O(N)，需要一个额外长度为 N 的数组（不考虑叶子节点为 null 的情况）</p>
-<p>###代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSameTree</span><span class="params">(self, p: TreeNode, q: TreeNode)</span> -&gt; bool:</span></span><br><span class="line">        arrp,arrq = [],[]</span><br><span class="line">        self.traversal(p,arrp)</span><br><span class="line">        self.traversal(q,arrq)</span><br><span class="line">        <span class="keyword">return</span> arrp == arrq</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">traversal</span><span class="params">(self, root: TreeNode, arr: List[int])</span>:</span></span><br><span class="line">    <span class="keyword">if</span> root == <span class="keyword">None</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    arr.append(root.val)</span><br><span class="line">    <span class="keyword">if</span> root.left != <span class="keyword">None</span>:</span><br><span class="line">        self.traversal(root.left,arr)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        arr.append(<span class="keyword">None</span>)</span><br><span class="line">    <span class="keyword">if</span> root.right != <span class="keyword">None</span>:</span><br><span class="line">        self.traversal(root.right,arr)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        arr.append(<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
-<p>###解法二：依次判断每一个节点是否相同<br>时间复杂度：O(N)，递归栈的深度为节点的数量（N）<br>空间复杂度：O(1)，不需要额外的空间</p>
-<p>###代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSameTree</span><span class="params">(self, p: TreeNode, q: TreeNode)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">if</span> p == <span class="keyword">None</span> <span class="keyword">and</span> q == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">if</span> p == <span class="keyword">None</span> <span class="keyword">or</span> q == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">if</span> p.val != q.val:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> self.isSameTree(p.left,q.left) <span class="keyword">and</span> self.isSameTree(p.right,q.right)</span><br></pre></td></tr></table></figure>
-
+<h2 id="项目基本结构"><a href="#项目基本结构" class="headerlink" title="项目基本结构"></a>项目基本结构</h2><p>│  main.py<br>│  tree.txt<br>│<br>├─database<br>│      user.txt<br>│      userid.txt<br>│<br>└─package<br>    │  card.py<br>    │  operation.py<br>    │  person.py<br>    │  view.py<br>    │  <strong>init</strong>.py<br>    │<br>    └─<strong>pycache</strong><br>            card.cpython-36.pyc<br>            card.cpython-37.pyc<br>            operation.cpython-36.pyc<br>            operation.cpython-37.pyc<br>            person.cpython-36.pyc<br>            person.cpython-37.pyc<br>            view.cpython-36.pyc<br>            view.cpython-37.pyc<br>            <strong>init</strong>.cpython-36.pyc<br>            <strong>init</strong>.cpython-37.pyc</p>
+<h2 id="迭代计划"><a href="#迭代计划" class="headerlink" title="迭代计划"></a>迭代计划</h2>
       
       
         <div class="page-reward">
@@ -393,13 +390,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/08/15/LeetCode100/"></a></p>
+        <p><span>本文标题:</span><a href="/2020/08/19/ATM/"></a></p>
         <p><span>文章作者:</span><a href="/" title="访问 imlch 的个人博客">imlch</a></p>
-        <p><span>发布时间:</span>2020年08月15日 - 17时39分</p>
-        <p><span>最后更新:</span>2020年08月15日 - 17时57分</p>
+        <p><span>发布时间:</span>2020年08月19日 - 15时48分</p>
+        <p><span>最后更新:</span>2020年08月19日 - 15时48分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/08/15/LeetCode100/" title="">http://blog.imlch.cn/2020/08/15/LeetCode100/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/08/15/LeetCode100/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/08/19/ATM/" title="">http://blog.imlch.cn/2020/08/19/ATM/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/08/19/ATM/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -412,15 +409,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/08/15/LeetCode99/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2020/08/15/LeetCode93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -429,7 +422,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ATM"><span class="toc-number">1.</span> <span class="toc-text">ATM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目基本功能"><span class="toc-number">2.</span> <span class="toc-text">项目基本功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目基本结构"><span class="toc-number">3.</span> <span class="toc-text">项目基本结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代计划"><span class="toc-number">4.</span> <span class="toc-text">迭代计划</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -496,13 +489,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/08/15/LeetCode99/" title="上一篇: ">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2020/08/15/LeetCode93/" title="下一篇: ">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/08/19/ATM/">ATM</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/15/LeetCode93/">LeetCode93</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/15/LeetCode99/">LeetCode99</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/15/LeetCode100/">LeetCode100</a></li></ul>
