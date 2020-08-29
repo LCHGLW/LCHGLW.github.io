@@ -5,17 +5,17 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##思路  res List[str]：记录当前已被分隔的字符串，初始值为 [s]，未做分隔  for 循环 3 次，每次给 res 中所有字符串加一个 ‘.’，多分隔出一个整数，例如 [“2552551135”] 一次循环之后，变成 [“2.552551135”, “25.52551135”, “255.2551135”]，分隔出了一个合法整数  然后在最后面的那串又加 ‘.’，继续分隔，维护好">
+  <meta name="description" content="关键字yield首先直观上等价于return，其次可看作生成器的一部分，（带有yield的函数，会被解释器视为一个迭代器，返回iterable对象） 实验12345678910111213141516class Fab(object):    def __init__(self, max):        self.max = max        self.n, self.a, self.b =">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://blog.imlch.cn/2020/08/15/LeetCode93/index.html">
+<meta property="og:url" content="http://blog.imlch.cn/2020/08/23/yield/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##思路  res List[str]：记录当前已被分隔的字符串，初始值为 [s]，未做分隔  for 循环 3 次，每次给 res 中所有字符串加一个 ‘.’，多分隔出一个整数，例如 [“2552551135”] 一次循环之后，变成 [“2.552551135”, “25.52551135”, “255.2551135”]，分隔出了一个合法整数  然后在最后面的那串又加 ‘.’，继续分隔，维护好">
+<meta property="og:description" content="关键字yield首先直观上等价于return，其次可看作生成器的一部分，（带有yield的函数，会被解释器视为一个迭代器，返回iterable对象） 实验12345678910111213141516class Fab(object):    def __init__(self, max):        self.max = max        self.n, self.a, self.b =">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-15T10:40:33.416Z">
+<meta property="og:updated_time" content="2020-08-23T16:30:52.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="##思路  res List[str]：记录当前已被分隔的字符串，初始值为 [s]，未做分隔  for 循环 3 次，每次给 res 中所有字符串加一个 ‘.’，多分隔出一个整数，例如 [“2552551135”] 一次循环之后，变成 [“2.552551135”, “25.52551135”, “255.2551135”]，分隔出了一个合法整数  然后在最后面的那串又加 ‘.’，继续分隔，维护好">
+<meta name="twitter:description" content="关键字yield首先直观上等价于return，其次可看作生成器的一部分，（带有yield的函数，会被解释器视为一个迭代器，返回iterable对象） 实验12345678910111213141516class Fab(object):    def __init__(self, max):        self.max = max        self.n, self.a, self.b =">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -303,11 +303,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-LeetCode93" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-yield" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/08/15/LeetCode93/" class="article-date">
-      <time datetime="2020-08-15T10:37:35.600Z" itemprop="datePublished">2020-08-15</time>
+      <a href="/2020/08/23/yield/" class="article-date">
+      <time datetime="2020-08-23T10:25:30.539Z" itemprop="datePublished">2020-08-23</time>
 </a>
     </div>
   
@@ -319,18 +319,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##思路</p>
+        <h2 id="关键字yield"><a href="#关键字yield" class="headerlink" title="关键字yield"></a>关键字yield</h2><p>首先直观上等价于return，其次可看作生成器的一部分，（带有yield的函数，会被解释器视为一个迭代器，返回iterable对象）</p>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fab</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, max)</span>:</span></span><br><span class="line">        self.max = max</span><br><span class="line">        self.n, self.a, self.b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.n &lt; self.max:</span><br><span class="line">            r = self.b</span><br><span class="line">            self.a, self.b = self.b, self.a + self.b</span><br><span class="line">            self.n = self.n + <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> r</span><br><span class="line">        <span class="keyword">raise</span> StopIteration()</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>res List[str]：记录当前已被分隔的字符串，初始值为 [s]，未做分隔</p>
-</li>
-<li><p>for 循环 3 次，每次给 res 中所有字符串加一个 ‘.’，多分隔出一个整数，例如 [“2552551135”] 一次循环之后，变成 [“2.552551135”, “25.52551135”, “255.2551135”]，分隔出了一个合法整数</p>
-</li>
-<li><p>然后在最后面的那串又加 ‘.’，继续分隔，维护好加 ‘.’ 分隔的位置</p>
-</li>
-<li>添加三个 ‘.’ 后，分隔出的前三个整数都已满足条件，只需检验一下分隔出的最后一个整数即可，若满足条件，则四个整数都满足条件</li>
+<li>判断函数是否为特殊的 generator 函数—isgeneratorfunction</li>
+<li></li>
 </ul>
-<p>##代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">validInt</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> s <span class="keyword">and</span> int(s) &lt; <span class="number">256</span>:</span><br><span class="line">            <span class="keyword">if</span> s[<span class="number">0</span>] != <span class="string">'0'</span> <span class="keyword">or</span> s == <span class="string">'0'</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">restoreIpAddresses</span><span class="params">(self, s: str)</span>:</span></span><br><span class="line">    res = [s]</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        res_now = []</span><br><span class="line">        <span class="keyword">for</span> si <span class="keyword">in</span> res:</span><br><span class="line">            last = si.split(<span class="string">'.'</span>)[<span class="number">-1</span>]</span><br><span class="line">            idx = len(si) - len(last)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(last)):</span><br><span class="line">                <span class="keyword">if</span> i &gt; <span class="number">2</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">if</span> int(last[:i + <span class="number">1</span>]) &lt; <span class="number">256</span>:</span><br><span class="line">                    si_now = si[: idx + i + <span class="number">1</span>] + <span class="string">'.'</span> + si[idx + i + <span class="number">1</span> :]</span><br><span class="line">                    res_now.append(si_now)</span><br><span class="line">                <span class="keyword">if</span> last[<span class="number">0</span>] == <span class="string">'0'</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        res = res_now</span><br><span class="line"></span><br><span class="line">    res_now = []</span><br><span class="line">    <span class="keyword">for</span> si <span class="keyword">in</span> res:</span><br><span class="line">        last = si.split(<span class="string">'.'</span>)[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">if</span> self.validInt(last):</span><br><span class="line">            res_now.append(si)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res_now</span><br></pre></td></tr></table></figure>
 
       
       
@@ -386,13 +380,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/08/15/LeetCode93/"></a></p>
+        <p><span>本文标题:</span><a href="/2020/08/23/yield/"></a></p>
         <p><span>文章作者:</span><a href="/" title="访问 imlch 的个人博客">imlch</a></p>
-        <p><span>发布时间:</span>2020年08月15日 - 18时37分</p>
-        <p><span>最后更新:</span>2020年08月15日 - 18时40分</p>
+        <p><span>发布时间:</span>2020年08月23日 - 18时25分</p>
+        <p><span>最后更新:</span>2020年08月24日 - 00时30分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/08/15/LeetCode93/" title="">http://blog.imlch.cn/2020/08/15/LeetCode93/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/08/15/LeetCode93/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/08/23/yield/" title="">http://blog.imlch.cn/2020/08/23/yield/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/08/23/yield/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -405,7 +399,7 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/08/20/Timsort/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/08/29/LeetCode101/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
@@ -415,7 +409,7 @@
     </a>
   
   
-    <a href="/2020/08/15/LeetCode99/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/08/20/Timsort/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -427,7 +421,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#关键字yield"><span class="toc-number">1.</span> <span class="toc-text">关键字yield</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实验"><span class="toc-number">1.1.</span> <span class="toc-text">实验</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -494,13 +488,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/08/20/Timsort/" title="上一篇: ">
+            <a href="/2020/08/29/LeetCode101/" title="上一篇: ">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2020/08/15/LeetCode99/" title="下一篇: ">
+            <a href="/2020/08/20/Timsort/" title="下一篇: ">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -306,6 +306,116 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-LeetCode101" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/08/29/LeetCode101/" class="article-date">
+      <time datetime="2020-08-29T10:09:34.691Z" itemprop="datePublished">2020-08-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="对称二叉树"><a href="#对称二叉树" class="headerlink" title="对称二叉树"></a>对称二叉树</h2><p><img src="https://pic.leetcode-cn.com/7f7978d0887dc8059d7058ebd60333160ab3fd0a7de39cbf559edec319ba6c49-image-20200514180949390.png" alt="image-20200514180949390.png"></p>
+<p>###思路—分治法</p>
+<p>如果满足条件的对称二叉树</p>
+<p>其左子树的前序遍历  &amp;&amp;  右子树的后序遍历 </p>
+<p>得到的列表必然完全相反</p>
+<p>左子树进行前序遍历: pre_order = [2,3,5,6,4,7,8]       后序遍历：post_order = [8,7,4,6,5,3,2]</p>
+<p>pre==post.reverse</p>
+<p>###代码</p>
+<ul>
+<li>按照总结的二叉树遍历模板</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 前序遍历</span></span><br><span class="line">    traverse(root.left)</span><br><span class="line">    <span class="comment">// 中序遍历</span></span><br><span class="line">    traverse(root.right)</span><br><span class="line">    <span class="comment">// 后序遍历</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>分别定义前序和后序遍历的函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pre_order</span><span class="params">(self,root,li)</span>:</span>    <span class="comment"># 二叉树的前序遍历</span></span><br><span class="line">    <span class="keyword">if</span> root:</span><br><span class="line">        li.append(root.val)</span><br><span class="line">        self.pre_order(root.left,li)</span><br><span class="line">        self.pre_order(root.right,li)</span><br><span class="line">    <span class="keyword">elif</span> root == <span class="keyword">None</span>:</span><br><span class="line">        li.append(<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">post_order</span><span class="params">(self,root,li)</span>:</span>   <span class="comment"># 二叉树的后序遍历</span></span><br><span class="line">    <span class="keyword">if</span> root:</span><br><span class="line">        self.post_order(root.left,li)</span><br><span class="line">        self.post_order(root.right,li)</span><br><span class="line">        li.append(root.val)</span><br><span class="line">    <span class="keyword">elif</span> root == <span class="keyword">None</span>:</span><br><span class="line">        li.append(<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSymmetric</span><span class="params">(self, root: TreeNode)</span> -&gt; bool:</span></span><br><span class="line">        pre = []     <span class="comment"># 用来存左子树的前序遍历</span></span><br><span class="line">        post = []     <span class="comment"># 用来存右子树的后序遍历</span></span><br><span class="line">        <span class="keyword">if</span> root == <span class="keyword">None</span>:   <span class="comment"># 无根节点</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">and</span> root.left == <span class="keyword">None</span> <span class="keyword">and</span> root.right == <span class="keyword">None</span>:  <span class="comment"># 只有根节点</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">and</span> root.left <span class="keyword">and</span> root.right:</span><br><span class="line">            self.pre_order(root.left, pre)</span><br><span class="line">            self.post_order(root.right, post)</span><br><span class="line">            post.reverse()            <span class="comment"># 将后序遍历的列表倒序</span></span><br><span class="line">            <span class="keyword">if</span> pre == post:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-yield" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/08/23/yield/" class="article-date">
+      <time datetime="2020-08-23T10:25:30.539Z" itemprop="datePublished">2020-08-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="关键字yield"><a href="#关键字yield" class="headerlink" title="关键字yield"></a>关键字yield</h2><p>首先直观上等价于return，其次可看作生成器的一部分，（带有yield的函数，会被解释器视为一个迭代器，返回iterable对象）</p>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fab</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, max)</span>:</span></span><br><span class="line">        self.max = max</span><br><span class="line">        self.n, self.a, self.b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.n &lt; self.max:</span><br><span class="line">            r = self.b</span><br><span class="line">            self.a, self.b = self.b, self.a + self.b</span><br><span class="line">            self.n = self.n + <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> r</span><br><span class="line">        <span class="keyword">raise</span> StopIteration()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>判断函数是否为特殊的 generator 函数—isgeneratorfunction</li>
+<li></li>
+</ul>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Timsort" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -327,9 +437,9 @@
 <li><p>sort 是应用在 list 上的方法，针对原list排序无返回值</p>
 </li>
 <li><p>sorted 是内建函数，可对所有可迭代的对象进行排序操作，会返回新的list</p>
-<h2 id="内部实现探究"><a href="#内部实现探究" class="headerlink" title="内部实现探究"></a>内部实现探究</h2></li>
+</li>
 </ul>
-<ol>
+<h2 id="内部实现探究"><a href="#内部实现探究" class="headerlink" title="内部实现探究"></a>内部实现探究</h2><ol>
 <li><p><a href="https://www.zhihu.com/question/36280272" target="_blank" rel="noopener">（知乎）python sort 函数采用的排序算法</a> ：其中一个回答提到了 python 中的 sorted 排序内部实现是 timsort，并没有说 sort 。</p>
 </li>
 <li><p><a href="https://github.com/qiwsir/algorithm/commit/68f1af0cfe3df4a96abc528cd324f5f69f4eb9df" target="_blank" rel="noopener">（GitHub）python的sorted排序分析</a> ： 同样只提到了 python 中的 sorted 排序内部实现是 timsort，并没有说 sort （知乎回答的一个链接）。</p>
