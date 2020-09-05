@@ -5,17 +5,17 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##整体思路  两个树相同，中根遍历肯定相同；中根遍历相同，两个树就一定相同？不一定，比如这种情况，中根遍历都是 [1,2]  123输入:      1          1          /           \         2             2  如果中根遍历，先根遍历，后根遍历均相同，那肯定是相同的树。但遍历 3 遍，时间复杂度太高。这道题是简单，显然不会这么复杂  中">
+  <meta name="description" content="##Xpath xpath如何取包含多个class属性 但是如果html是 1div class=&quot;test demo&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;demo test&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;test demo2&quot;&amp;gt;&amp;lt;/div&amp;gt; 如果目标 class 不一定是第一个，那么：  //div[contains(c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://blog.imlch.cn/2020/08/15/LeetCode100/index.html">
+<meta property="og:url" content="http://blog.imlch.cn/2020/09/05/Note200829/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##整体思路  两个树相同，中根遍历肯定相同；中根遍历相同，两个树就一定相同？不一定，比如这种情况，中根遍历都是 [1,2]  123输入:      1          1          /           \         2             2  如果中根遍历，先根遍历，后根遍历均相同，那肯定是相同的树。但遍历 3 遍，时间复杂度太高。这道题是简单，显然不会这么复杂  中">
+<meta property="og:description" content="##Xpath xpath如何取包含多个class属性 但是如果html是 1div class=&quot;test demo&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;demo test&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;test demo2&quot;&amp;gt;&amp;lt;/div&amp;gt; 如果目标 class 不一定是第一个，那么：  //div[contains(c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-15T09:57:38.461Z">
+<meta property="og:updated_time" content="2020-08-29T16:46:10.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="##整体思路  两个树相同，中根遍历肯定相同；中根遍历相同，两个树就一定相同？不一定，比如这种情况，中根遍历都是 [1,2]  123输入:      1          1          /           \         2             2  如果中根遍历，先根遍历，后根遍历均相同，那肯定是相同的树。但遍历 3 遍，时间复杂度太高。这道题是简单，显然不会这么复杂  中">
+<meta name="twitter:description" content="##Xpath xpath如何取包含多个class属性 但是如果html是 1div class=&quot;test demo&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;demo test&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;test demo2&quot;&amp;gt;&amp;lt;/div&amp;gt; 如果目标 class 不一定是第一个，那么：  //div[contains(c">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -303,11 +303,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-LeetCode100" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Note200829" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/08/15/LeetCode100/" class="article-date">
-      <time datetime="2020-08-15T09:39:26.995Z" itemprop="datePublished">2020-08-15</time>
+      <a href="/2020/09/05/Note200829/" class="article-date">
+      <time datetime="2020-09-05T10:12:11.131Z" itemprop="datePublished">2020-09-05</time>
 </a>
     </div>
   
@@ -319,26 +319,36 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##整体思路</p>
+        <p>##Xpath</p>
+<p>xpath如何取包含多个class属性</p>
+<p>但是如果html是</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div class="test demo"&gt;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo test"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test demo2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果目标 class 不一定是第一个，那么：</p>
+<blockquote>
+<p>//div[contains(concat(‘ ‘, @class, ‘ ‘), ‘demo’)]     ##只想选出有demo这个class的对象</p>
+</blockquote>
+<p>取多个class属性值的元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'a b'</span>&gt;</span>test<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以用如下的表达式：</p>
+<blockquote>
+<p>xpath(‘//div[contains(@class,”a”)]’)  #它会取得所有class为a的元素</p>
+</blockquote>
+<blockquote>
+<p>xpath(‘//div[contains(@class,”a”) and contains(@class,”b”)]’) #它会取class同时有a和b的元素</p>
+</blockquote>
+<p>##应对反爬虫措施解决方案</p>
+<h3 id="user-agent-伪装和轮换"><a href="#user-agent-伪装和轮换" class="headerlink" title="user_agent 伪装和轮换"></a>user_agent 伪装和轮换</h3><p>不同浏览器的不同版本都有不同的user_agent，是浏览器类型的详细信息，也是浏览器提交Http请求的重要头部信息。我们可以在每次请求的时候提供不同的user_agent，绕过网站检测客户端的反爬虫机制。比如说，可以把很多的user_agent放在一个列表中，每次随机选一个用于提交访问请求。有一个提供各种user_agent的网站：</p>
+<p><a href="http://www.useragentstring.com/" target="_blank" rel="noopener">http://www.useragentstring.com/</a></p>
+<p>最近又看到一个专门提供伪装浏览器身份的开源库，名字取得很直白：</p>
+<p><a href="https://github.com/hellysmile/fake-useragent" target="_blank" rel="noopener">fake-useragent</a></p>
+<h3 id="使用代理IP和轮换"><a href="#使用代理IP和轮换" class="headerlink" title="使用代理IP和轮换"></a>使用代理IP和轮换</h3><p>检查ip的访问情况是网站的反爬机制最喜欢也最喜欢用的方式。这种时候就可以更换不同的ip地址来爬取内容。当然，你有很多有公网ip地址的主机或者vps是更好的选择，如果没有的话就可以考虑使用代理，让代理服务器去帮你获得网页内容，然后再转发回你的电脑。代理按透明度可以分为透明代理、匿名代理和高度匿名代理:</p>
 <ul>
-<li>两个树相同，中根遍历肯定相同；中根遍历相同，两个树就一定相同？不一定，比如这种情况，中根遍历都是 [1,2]</li>
+<li><strong>透明代理</strong>：目标网站知道你使用了代理并且知道你的源IP地址，这种代理显然不符合我们这里使用代理的初衷</li>
+<li><strong>匿名代理</strong>：匿名程度比较低，也就是网站知道你使用了代理，但是并不知道你的源IP地址</li>
+<li><strong>高匿代理</strong>：这是最保险的方式，目标网站既不知道你使用的代理更不知道你的源IP<br>代理的获取方式可以去购买，当然也可以去自己爬取免费的，<a href="http://www.xicidaili.com/nn/" target="_blank" rel="noopener">这里</a>有一个提供免费代理的网站，可以爬下来使用，但是免费的代理通常不够稳定。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入:      1          1</span><br><span class="line">          /           \</span><br><span class="line">         2             2</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>如果中根遍历，先根遍历，后根遍历均相同，那肯定是相同的树。但遍历 3 遍，时间复杂度太高。这道题是简单，显然不会这么复杂</p>
-</li>
-<li><p>中根遍历只记录非空「值」，如果将没有空节点也记录，可以通过判断遍历结果（[1,2,null], [1,null,2]）是否相同来判断两个树是否相同。解法一：通过遍历结果是否相同来判断。</p>
-</li>
-<li><p>解法二：通过两个数组是否完全相同来判断，其实也是依次判断每一个元素是否相同，如果都相同，则最终结果相同。依次判断每一个节点是否相同，相同为 true，不同为 false，存在 false，则最后结果为 false。</p>
-</li>
-</ul>
-<p>###解法一：通过判断遍历结果是否相同<br>时间复杂度：O(N)，递归栈的深度为节点的数量（N）<br>空间复杂度：O(N)，需要一个额外长度为 N 的数组（不考虑叶子节点为 null 的情况）</p>
-<p>###代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSameTree</span><span class="params">(self, p: TreeNode, q: TreeNode)</span> -&gt; bool:</span></span><br><span class="line">        arrp,arrq = [],[]</span><br><span class="line">        self.traversal(p,arrp)</span><br><span class="line">        self.traversal(q,arrq)</span><br><span class="line">        <span class="keyword">return</span> arrp == arrq</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">traversal</span><span class="params">(self, root: TreeNode, arr: List[int])</span>:</span></span><br><span class="line">    <span class="keyword">if</span> root == <span class="keyword">None</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    arr.append(root.val)</span><br><span class="line">    <span class="keyword">if</span> root.left != <span class="keyword">None</span>:</span><br><span class="line">        self.traversal(root.left,arr)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        arr.append(<span class="keyword">None</span>)</span><br><span class="line">    <span class="keyword">if</span> root.right != <span class="keyword">None</span>:</span><br><span class="line">        self.traversal(root.right,arr)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        arr.append(<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
-<p>###解法二：依次判断每一个节点是否相同<br>时间复杂度：O(N)，递归栈的深度为节点的数量（N）<br>空间复杂度：O(1)，不需要额外的空间</p>
-<p>###代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSameTree</span><span class="params">(self, p: TreeNode, q: TreeNode)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">if</span> p == <span class="keyword">None</span> <span class="keyword">and</span> q == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">if</span> p == <span class="keyword">None</span> <span class="keyword">or</span> q == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">if</span> p.val != q.val:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> self.isSameTree(p.left,q.left) <span class="keyword">and</span> self.isSameTree(p.right,q.right)</span><br></pre></td></tr></table></figure>
-
+<h3 id="设置访问时间间隔"><a href="#设置访问时间间隔" class="headerlink" title="设置访问时间间隔"></a>设置访问时间间隔</h3><p>很多网站的反爬虫机制都设置了访问间隔时间，一个IP如果短时间内超过了指定的次数就会进入“冷却CD”，所以除了轮换IP和user_agent<br>可以设置访问的时间间间隔长一点，比如没抓取一个页面休眠一个随机时间：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time，random</span><br><span class="line">time.sleep(random.random()*<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
       
       
         <div class="page-reward">
@@ -393,13 +403,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/08/15/LeetCode100/"></a></p>
+        <p><span>本文标题:</span><a href="/2020/09/05/Note200829/"></a></p>
         <p><span>文章作者:</span><a href="/" title="访问 imlch 的个人博客">imlch</a></p>
-        <p><span>发布时间:</span>2020年08月15日 - 17时39分</p>
-        <p><span>最后更新:</span>2020年08月15日 - 17时57分</p>
+        <p><span>发布时间:</span>2020年09月05日 - 18时12分</p>
+        <p><span>最后更新:</span>2020年08月30日 - 00时46分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/08/15/LeetCode100/" title="">http://blog.imlch.cn/2020/08/15/LeetCode100/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/08/15/LeetCode100/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/09/05/Note200829/" title="">http://blog.imlch.cn/2020/09/05/Note200829/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/09/05/Note200829/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -412,15 +422,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/08/15/LeetCode99/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2020/08/29/LeetCode101/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -429,7 +435,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#user-agent-伪装和轮换"><span class="toc-number">1.</span> <span class="toc-text">user_agent 伪装和轮换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用代理IP和轮换"><span class="toc-number">2.</span> <span class="toc-text">使用代理IP和轮换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置访问时间间隔"><span class="toc-number">3.</span> <span class="toc-text">设置访问时间间隔</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -496,13 +502,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/08/15/LeetCode99/" title="上一篇: ">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2020/08/29/LeetCode101/" title="下一篇: ">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/09/05/Note200829/">Note200829</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/29/LeetCode101/">LeetCode101</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/yield/">yield</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/20/Timsort/">Timsort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/15/LeetCode93/">LeetCode93</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/15/LeetCode99/">LeetCode99</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/15/LeetCode100/">LeetCode100</a></li></ul>
