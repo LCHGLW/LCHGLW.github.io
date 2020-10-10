@@ -5,17 +5,17 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##Xpath xpath如何取包含多个class属性 但是如果html是 1div class=&quot;test demo&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;demo test&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;test demo2&quot;&amp;gt;&amp;lt;/div&amp;gt; 如果目标 class 不一定是第一个，那么：  //div[contains(c">
+  <meta name="description" content="##LeetCode485 方法一：一次遍历 算法： 用一个计数器 count 记录 1 的数量，另一个计数器 maxCount 记录当前最大的 1 的数量。遇到 1 时，count 加一。遇到 0 时：将 count 与 maxCount 比较，maxCoiunt 记录较大值。将 count 设为 0。 返回 max（Count，maxcount)。 PS :当然也可以在遇到1时候就进行maxc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://blog.imlch.cn/2020/09/05/Note200829/index.html">
+<meta property="og:url" content="http://blog.imlch.cn/2020/10/10/LeetCode485/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##Xpath xpath如何取包含多个class属性 但是如果html是 1div class=&quot;test demo&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;demo test&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;test demo2&quot;&amp;gt;&amp;lt;/div&amp;gt; 如果目标 class 不一定是第一个，那么：  //div[contains(c">
+<meta property="og:description" content="##LeetCode485 方法一：一次遍历 算法： 用一个计数器 count 记录 1 的数量，另一个计数器 maxCount 记录当前最大的 1 的数量。遇到 1 时，count 加一。遇到 0 时：将 count 与 maxCount 比较，maxCoiunt 记录较大值。将 count 设为 0。 返回 max（Count，maxcount)。 PS :当然也可以在遇到1时候就进行maxc">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-29T16:46:10.319Z">
+<meta property="og:updated_time" content="2020-10-10T11:49:00.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="##Xpath xpath如何取包含多个class属性 但是如果html是 1div class=&quot;test demo&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;demo test&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;test demo2&quot;&amp;gt;&amp;lt;/div&amp;gt; 如果目标 class 不一定是第一个，那么：  //div[contains(c">
+<meta name="twitter:description" content="##LeetCode485 方法一：一次遍历 算法： 用一个计数器 count 记录 1 的数量，另一个计数器 maxCount 记录当前最大的 1 的数量。遇到 1 时，count 加一。遇到 0 时：将 count 与 maxCount 比较，maxCoiunt 记录较大值。将 count 设为 0。 返回 max（Count，maxcount)。 PS :当然也可以在遇到1时候就进行maxc">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -303,11 +303,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Note200829" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-LeetCode485" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/09/05/Note200829/" class="article-date">
-      <time datetime="2020-09-05T10:12:11.131Z" itemprop="datePublished">2020-09-05</time>
+      <a href="/2020/10/10/LeetCode485/" class="article-date">
+      <time datetime="2020-10-10T11:49:23.820Z" itemprop="datePublished">2020-10-10</time>
 </a>
     </div>
   
@@ -319,36 +319,30 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##Xpath</p>
-<p>xpath如何取包含多个class属性</p>
-<p>但是如果html是</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div class="test demo"&gt;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo test"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test demo2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>如果目标 class 不一定是第一个，那么：</p>
-<blockquote>
-<p>//div[contains(concat(‘ ‘, @class, ‘ ‘), ‘demo’)]     ##只想选出有demo这个class的对象</p>
-</blockquote>
-<p>取多个class属性值的元素</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'a b'</span>&gt;</span>test<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>可以用如下的表达式：</p>
-<blockquote>
-<p>xpath(‘//div[contains(@class,”a”)]’)  #它会取得所有class为a的元素</p>
-</blockquote>
-<blockquote>
-<p>xpath(‘//div[contains(@class,”a”) and contains(@class,”b”)]’) #它会取class同时有a和b的元素</p>
-</blockquote>
-<p>##应对反爬虫措施解决方案</p>
-<h3 id="user-agent-伪装和轮换"><a href="#user-agent-伪装和轮换" class="headerlink" title="user_agent 伪装和轮换"></a>user_agent 伪装和轮换</h3><p>不同浏览器的不同版本都有不同的user_agent，是浏览器类型的详细信息，也是浏览器提交Http请求的重要头部信息。我们可以在每次请求的时候提供不同的user_agent，绕过网站检测客户端的反爬虫机制。比如说，可以把很多的user_agent放在一个列表中，每次随机选一个用于提交访问请求。有一个提供各种user_agent的网站：</p>
-<p><a href="http://www.useragentstring.com/" target="_blank" rel="noopener">http://www.useragentstring.com/</a></p>
-<p>最近又看到一个专门提供伪装浏览器身份的开源库，名字取得很直白：</p>
-<p><a href="https://github.com/hellysmile/fake-useragent" target="_blank" rel="noopener">fake-useragent</a></p>
-<h3 id="使用代理IP和轮换"><a href="#使用代理IP和轮换" class="headerlink" title="使用代理IP和轮换"></a>使用代理IP和轮换</h3><p>检查ip的访问情况是网站的反爬机制最喜欢也最喜欢用的方式。这种时候就可以更换不同的ip地址来爬取内容。当然，你有很多有公网ip地址的主机或者vps是更好的选择，如果没有的话就可以考虑使用代理，让代理服务器去帮你获得网页内容，然后再转发回你的电脑。代理按透明度可以分为透明代理、匿名代理和高度匿名代理:</p>
-<ul>
-<li><strong>透明代理</strong>：目标网站知道你使用了代理并且知道你的源IP地址，这种代理显然不符合我们这里使用代理的初衷</li>
-<li><strong>匿名代理</strong>：匿名程度比较低，也就是网站知道你使用了代理，但是并不知道你的源IP地址</li>
-<li><strong>高匿代理</strong>：这是最保险的方式，目标网站既不知道你使用的代理更不知道你的源IP<br>代理的获取方式可以去购买，当然也可以去自己爬取免费的，<a href="http://www.xicidaili.com/nn/" target="_blank" rel="noopener">这里</a>有一个提供免费代理的网站，可以爬下来使用，但是免费的代理通常不够稳定。</li>
-</ul>
-<h3 id="设置访问时间间隔"><a href="#设置访问时间间隔" class="headerlink" title="设置访问时间间隔"></a>设置访问时间间隔</h3><p>很多网站的反爬虫机制都设置了访问间隔时间，一个IP如果短时间内超过了指定的次数就会进入“冷却CD”，所以除了轮换IP和user_agent<br>可以设置访问的时间间间隔长一点，比如没抓取一个页面休眠一个随机时间：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time，random</span><br><span class="line">time.sleep(random.random()*<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+        <p>##LeetCode485</p>
+<p>方法一：一次遍历</p>
+<p>算法：</p>
+<p>用一个计数器 count 记录 1 的数量，另一个计数器 maxCount 记录当前最大的 1 的数量。<br>遇到 1 时，count 加一。遇到 0 时：将 count 与 maxCount 比较，maxCoiunt 记录较大值。<br>将 count 设为 0。 返回 max（Count，maxcount)。</p>
+<p>PS :当然也可以在遇到1时候就进行maxcount比较，（从测试用例耗时来看）和前面相比耗时会多一些    ，考虑原因可能是题目是找最大连续1的个数，用例中1比0多的用例占多数，遇到0时再max比较，比较次数会少一些</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findMaxConsecutiveOnes</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">       res=<span class="number">0</span></span><br><span class="line">       count=<span class="number">0</span></span><br><span class="line">       <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">           <span class="keyword">if</span> nums[i]:</span><br><span class="line">               count+=<span class="number">1</span></span><br><span class="line">               <span class="comment">#res=max(res,count)</span></span><br><span class="line">           <span class="keyword">else</span>:</span><br><span class="line">               count=<span class="number">0</span></span><br><span class="line">               res=max(res,count)</span><br><span class="line">       <span class="comment">#return res</span></span><br><span class="line">   	retuen max(res,count)</span><br></pre></td></tr></table></figure>
+<p>复杂度分析</p>
+<p>时间复杂度：O(N)    N是数组的长度。<br>空间复杂度：O(1)     count 和 maxCount。<br>方法二：<br>使用 splits 函数在 0 处分割将数组转换成字符串。在获取子串的最大长度就是最大连续 1 的长度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> max(map(len, <span class="string">''</span>.join(map(str, nums)).split(<span class="string">'0'</span>))</span><br></pre></td></tr></table></figure>
+<p>方法三：</p>
+<p>看到评论区有其他语言的双指针法，改写python</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findMaxConsecutiveOnes</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        count =<span class="number">0</span></span><br><span class="line">        start = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i]==<span class="number">1</span>:</span><br><span class="line">                start =i</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        curstart = start </span><br><span class="line">        maxcount = <span class="number">0</span></span><br><span class="line">        count =<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(start, len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i]==<span class="number">1</span>:</span><br><span class="line">                count+=<span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> count&gt;maxcount:</span><br><span class="line">                    maxcount = count</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                curstart=i+<span class="number">1</span></span><br><span class="line">                count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> maxcount</span><br></pre></td></tr></table></figure>
+<p>如果使用普通的快排划分，虽然时间复杂度是O(n)，空间复杂度是O(1)。</p>
+<p>但是仍然不是最优解。因为普通的快排划分需要对数组进行两次扫描(第一次以2为中心划分，第二次以1为中心划分)。    </p>
+<p>题目要求的最优是对数组进行一次扫描。</p>
+<p>怎么做呢？</p>
+<p>设置两个变量r1,r2，含义是r1,左边(包含r1)的变量值都小于1，r2左边(包含r2)的变量值都小于2。</p>
+<p>那么初始时他俩都是-1(实际上是左边界-1)，代表他俩所包裹的范围是空。</p>
+<p>假设现在有数组nums = [0,0,1,1,2,0,0],r1 = 1,r2 = 3。下一个数组索引i是5，也就是要处理0，这个数是小于2的。</p>
+<p>因此r2+1，代表区间扩大，把nums[i]和nums[r2]交换。此时维持了r2左侧的数都是小于2的这个性质。</p>
+<p>交换完之后，这个小于2的数存放在了nums[r2]，但是这个nums[r2]仍然有可能小于1，若是小于1，那么</p>
+<p>应该把r1+1，代表区间扩大，然后把nums[r1]和nums[r2]交换，这样才能维持r1左侧的数小于1的这个性质。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sortColors</span><span class="params">(self, nums: List[int])</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">swap</span><span class="params">(nums,i,j)</span>:</span></span><br><span class="line">            temp=nums[i]</span><br><span class="line">            nums[i]=nums[j]</span><br><span class="line">            nums[j]=temp</span><br><span class="line">        r1,r2=<span class="number">-1</span>,<span class="number">-1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range (len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i]&lt;<span class="number">2</span>:</span><br><span class="line">                r2+=<span class="number">1</span></span><br><span class="line">                swap(nums,i,r2)</span><br><span class="line">                <span class="keyword">if</span> nums[r2]&lt;<span class="number">1</span>:</span><br><span class="line">                    r1+=<span class="number">1</span></span><br><span class="line">                    swap(nums,r1,r2)</span><br></pre></td></tr></table></figure>
+
       
       
         <div class="page-reward">
@@ -403,13 +397,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/09/05/Note200829/"></a></p>
+        <p><span>本文标题:</span><a href="/2020/10/10/LeetCode485/"></a></p>
         <p><span>文章作者:</span><a href="/" title="访问 imlch 的个人博客">imlch</a></p>
-        <p><span>发布时间:</span>2020年09月05日 - 18时12分</p>
-        <p><span>最后更新:</span>2020年08月30日 - 00时46分</p>
+        <p><span>发布时间:</span>2020年10月10日 - 19时49分</p>
+        <p><span>最后更新:</span>2020年10月10日 - 19时49分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/09/05/Note200829/" title="">http://blog.imlch.cn/2020/09/05/Note200829/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/09/05/Note200829/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/10/10/LeetCode485/" title="">http://blog.imlch.cn/2020/10/10/LeetCode485/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/10/10/LeetCode485/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -422,17 +416,8 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/09/12/ServerlessSSR/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/29/LeetCode101/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/09/26/LeetCode106/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -444,7 +429,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#user-agent-伪装和轮换"><span class="toc-number">1.</span> <span class="toc-text">user_agent 伪装和轮换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用代理IP和轮换"><span class="toc-number">2.</span> <span class="toc-text">使用代理IP和轮换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置访问时间间隔"><span class="toc-number">3.</span> <span class="toc-text">设置访问时间间隔</span></a></li></ol>
+    
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -511,13 +496,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/09/12/ServerlessSSR/" title="上一篇: ">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2020/08/29/LeetCode101/" title="下一篇: ">
+            <a href="/2020/09/26/LeetCode106/" title="下一篇: ">
                 <i class="fa fa-angle-right"></i>
             </a>
         
