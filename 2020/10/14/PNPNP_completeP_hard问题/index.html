@@ -5,19 +5,17 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对称二叉树 ###思路—分治法 如果满足条件的对称二叉树 其左子树的前序遍历  &amp;amp;&amp;amp;  右子树的后序遍历  得到的列表必然完全相反 左子树进行前序遍历: pre_order = [2,3,5,6,4,7,8]       后序遍历：post_order = [8,7,4,6,5,3,2] pre==post.reverse ###代码  按照总结的二叉树遍历模板  1234567v">
+  <meta name="description" content="P/NP/NP_complete/NP_hard问题###定义问题 P问题、NP问题、NPC问题和NP hard问题，其中P/NP问题是在理论信息学中计算复杂度理论领域里至今未被解决的问题，也是克雷数学研究所七个千禧年大奖难题之一。P/NP问题中包含了复杂度类P与NP的关系：P=NP?  NP类问题，就是不知道这个问题是不是存在多项式时间内的算法，所以叫non-deterministic非确定性，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://blog.imlch.cn/2020/08/29/LeetCode101/index.html">
+<meta property="og:url" content="http://blog.imlch.cn/2020/10/14/PNPNP_completeP_hard问题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="对称二叉树 ###思路—分治法 如果满足条件的对称二叉树 其左子树的前序遍历  &amp;amp;&amp;amp;  右子树的后序遍历  得到的列表必然完全相反 左子树进行前序遍历: pre_order = [2,3,5,6,4,7,8]       后序遍历：post_order = [8,7,4,6,5,3,2] pre==post.reverse ###代码  按照总结的二叉树遍历模板  1234567v">
+<meta property="og:description" content="P/NP/NP_complete/NP_hard问题###定义问题 P问题、NP问题、NPC问题和NP hard问题，其中P/NP问题是在理论信息学中计算复杂度理论领域里至今未被解决的问题，也是克雷数学研究所七个千禧年大奖难题之一。P/NP问题中包含了复杂度类P与NP的关系：P=NP?  NP类问题，就是不知道这个问题是不是存在多项式时间内的算法，所以叫non-deterministic非确定性，">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://pic.leetcode-cn.com/7f7978d0887dc8059d7058ebd60333160ab3fd0a7de39cbf559edec319ba6c49-image-20200514180949390.png">
-<meta property="og:updated_time" content="2020-08-29T10:21:23.975Z">
+<meta property="og:updated_time" content="2020-10-17T12:43:03.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="对称二叉树 ###思路—分治法 如果满足条件的对称二叉树 其左子树的前序遍历  &amp;amp;&amp;amp;  右子树的后序遍历  得到的列表必然完全相反 左子树进行前序遍历: pre_order = [2,3,5,6,4,7,8]       后序遍历：post_order = [8,7,4,6,5,3,2] pre==post.reverse ###代码  按照总结的二叉树遍历模板  1234567v">
-<meta name="twitter:image" content="https://pic.leetcode-cn.com/7f7978d0887dc8059d7058ebd60333160ab3fd0a7de39cbf559edec319ba6c49-image-20200514180949390.png">
+<meta name="twitter:description" content="P/NP/NP_complete/NP_hard问题###定义问题 P问题、NP问题、NPC问题和NP hard问题，其中P/NP问题是在理论信息学中计算复杂度理论领域里至今未被解决的问题，也是克雷数学研究所七个千禧年大奖难题之一。P/NP问题中包含了复杂度类P与NP的关系：P=NP?  NP类问题，就是不知道这个问题是不是存在多项式时间内的算法，所以叫non-deterministic非确定性，">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -249,11 +247,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-LeetCode101" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-PNPNP_completeP_hard问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/08/29/LeetCode101/" class="article-date">
-      <time datetime="2020-08-29T10:09:34.691Z" itemprop="datePublished">2020-08-29</time>
+      <a href="/2020/10/14/PNPNP_completeP_hard问题/" class="article-date">
+      <time datetime="2020-10-14T13:37:39.921Z" itemprop="datePublished">2020-10-14</time>
 </a>
     </div>
   
@@ -265,24 +263,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="对称二叉树"><a href="#对称二叉树" class="headerlink" title="对称二叉树"></a>对称二叉树</h2><p><img src="https://pic.leetcode-cn.com/7f7978d0887dc8059d7058ebd60333160ab3fd0a7de39cbf559edec319ba6c49-image-20200514180949390.png" alt="image-20200514180949390.png"></p>
-<p>###思路—分治法</p>
-<p>如果满足条件的对称二叉树</p>
-<p>其左子树的前序遍历  &amp;&amp;  右子树的后序遍历 </p>
-<p>得到的列表必然完全相反</p>
-<p>左子树进行前序遍历: pre_order = [2,3,5,6,4,7,8]       后序遍历：post_order = [8,7,4,6,5,3,2]</p>
-<p>pre==post.reverse</p>
-<p>###代码</p>
+        <h2 id="P-NP-NP-complete-NP-hard问题"><a href="#P-NP-NP-complete-NP-hard问题" class="headerlink" title="P/NP/NP_complete/NP_hard问题"></a>P/NP/NP_complete/NP_hard问题</h2><p>###定义问题</p>
+<p>P问题、NP问题、NPC问题和NP hard问题，其中P/NP问题是在理论信息学中计算复杂度理论领域里至今未被解决的问题，也是克雷数学研究所七个千禧年大奖难题之一。P/NP问题中包含了复杂度类P与NP的关系：P=NP?</p>
 <ul>
-<li>按照总结的二叉树遍历模板</li>
+<li><p>NP类问题，就是不知道这个问题是不是存在多项式时间内的算法，所以叫non-deterministic非确定性，但是我们可以在多项式时间内验证并得出这个问题的一个正确解（TSP问题）</p>
+</li>
+<li><p>P类问题是NP问题的子集，因为存在多项式时间解法的问题，总能在多项式时间内得到验证</p>
+</li>
+<li><p>NP-complete问题是如果所有NP问题可在多项式时间内归约成某个NP问题，则该NP问题称为NP完全问题。</p>
+<p>同时满足两个条件：（1）该问题是一个NP问题；（2）所有NP问题可以归约为该问题。所以NPC问题既是NP问题的子集，又是NP hard问题的子集，因此NPC问题是NP问题和NP hard问题的交集。</p>
+<p>可满足性问题、哈密顿圈问题、巡回售货员问题、最长路径问题都是NPC问题。 装箱(bin packing)问题、背包(knapsack)问题、图的着色(graph coloring)问题以及团(clique)的问题都是著名的NPC问题。</p>
+</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 前序遍历</span></span><br><span class="line">    traverse(root.left)</span><br><span class="line">    <span class="comment">// 中序遍历</span></span><br><span class="line">    traverse(root.right)</span><br><span class="line">    <span class="comment">// 后序遍历</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>分别定义前序和后序遍历的函数</li>
+<li><p>NP_Hard指问题S，满足任何NP问题都可以在多项式级时间复杂度内被归约为S（归约：即被归约的NP问题与S的答案相同，当解决了S时，就同时解决了所有的NP问题）。可以理解为，这是一个比所有NP问题都难的问题。</p>
+<p>（NP hard问题不一定是NP问题，有可能是不可判定问题。这时候说明原问题也是不可判定的）</p>
+</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pre_order</span><span class="params">(self,root,li)</span>:</span>    <span class="comment"># 二叉树的前序遍历</span></span><br><span class="line">    <span class="keyword">if</span> root:</span><br><span class="line">        li.append(root.val)</span><br><span class="line">        self.pre_order(root.left,li)</span><br><span class="line">        self.pre_order(root.right,li)</span><br><span class="line">    <span class="keyword">elif</span> root == <span class="keyword">None</span>:</span><br><span class="line">        li.append(<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">post_order</span><span class="params">(self,root,li)</span>:</span>   <span class="comment"># 二叉树的后序遍历</span></span><br><span class="line">    <span class="keyword">if</span> root:</span><br><span class="line">        self.post_order(root.left,li)</span><br><span class="line">        self.post_order(root.right,li)</span><br><span class="line">        li.append(root.val)</span><br><span class="line">    <span class="keyword">elif</span> root == <span class="keyword">None</span>:</span><br><span class="line">        li.append(<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSymmetric</span><span class="params">(self, root: TreeNode)</span> -&gt; bool:</span></span><br><span class="line">        pre = []     <span class="comment"># 用来存左子树的前序遍历</span></span><br><span class="line">        post = []     <span class="comment"># 用来存右子树的后序遍历</span></span><br><span class="line">        <span class="keyword">if</span> root == <span class="keyword">None</span>:   <span class="comment"># 无根节点</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">and</span> root.left == <span class="keyword">None</span> <span class="keyword">and</span> root.right == <span class="keyword">None</span>:  <span class="comment"># 只有根节点</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">and</span> root.left <span class="keyword">and</span> root.right:</span><br><span class="line">            self.pre_order(root.left, pre)</span><br><span class="line">            self.post_order(root.right, post)</span><br><span class="line">            post.reverse()            <span class="comment"># 将后序遍历的列表倒序</span></span><br><span class="line">            <span class="keyword">if</span> pre == post:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<p>###相互关系</p>
+<p>NP hard问题和NPC问题都要求能够在<strong>多项式时间</strong>内<strong>规约</strong>成另外一个问题。这里<strong>规约</strong>的意思是<strong>将一个特殊问题一般化</strong>，即将原问题推广为一个最一般的、最有概括性、也更难的、计算复杂度更高的问题，这个问题具有最高的计算复杂度，如果这个最一般的问题也能有多项式时间求解算法，那么那些特殊的原问题也能有多项式时间求解算法。</p>
+<ul>
+<li>假设 N P = P 猜想不成立，那么计算复杂度的相对关系为（按照由低到高）：P &lt; N P &lt; N P C &lt; NPhard</li>
+<li>假设 N P = P 猜想成立，那么说明所有存在多项式时间验证算法的问题都存在多项式时间求解算法，而NPC本身属于NP问题，因此NPC也存在多项式时间求解算法，所以NPC = P，所以 P = N P = NPC ，属于NP hard问题的一个子集。</li>
+</ul>
+<p>正是NPC问题的存在，使人们相信P≠NP<br>NPC问题目前没有多项式的有效算法，只能用指数级甚至阶乘级复杂度的搜索。<br>NP-Hard放宽了限定条件，它将有可能比所有的NPC问题的时间复杂度更高从而更难以解决</p>
+<p>###其他理解</p>
+<ul>
+<li>计算机处理的输入常常不是几十个或几千个，而是几百万个的时候，时间复杂度为O ( n 2 ) O(n^2)<em>O</em>(<em>n</em>2)和O ( e n ) O(e^n)<em>O</em>(<em>e**n</em>)的算法，所需的运行次数简直是天壤之别，O ( e n ) O(e^n)<em>O</em>(<em>e**n</em>)指数级的可能运行好几天都没法完成任务，所以才要研究一个问题是否存在多项式时间算法。</li>
+<li>而我们也只在乎一个问题是否存在多项式算法，因为一个时间复杂度比多项式算法还要复杂的算法研究起来是没有任何实际意义的</li>
+</ul>
+<ul>
+<li>最开始的时候，大家不知道NP的定义是存在所谓 最难的 这么一个东西的，各类问题没有固定的比较标准。直到一个叫Cook的数学家做了点CS的工作，他证明了任何一个NP形式的问题都可以转换成 3SAT （某个NP问题）。3SAT 就是说有n个variable，m个clause，每个clause都是某三个variable 或（|） 在一起， 最后再把所有的clause 和（&amp;） 在一起， 问题是：“有没有一种对于这n个variable的取值可以让整个boolean formula的值为true？” 3SAT 这个问题的优点在于它非常的直观清晰。最开始这篇文章没得到什么重视，直到一个非常出名的计算机科学家Levin看到了这篇文章，突然意识到如果这么多问题都等价于 3SAT 问题，那这就很好地揭示了为什么之前那么多算法问题都找不到快速的（多项式级）算法，因为都和3SAT一样难嘛；另外可以用 3SAT 作为对各种计算问题的分界线，那以后只要发现是NP-complete的问题，大家就不用对于每个问题找解法了。由此衍生了很多对于complexity class的研究，而cook-levin这种把NP问题化为3SAT的思想一次又一次起到了至关重要的作用。</li>
+</ul>
+<p>PS : 时间复杂度</p>
+<p>O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n^2) &lt; O(n^3) &lt; O(2^n)</p>
 
       
       
@@ -338,13 +352,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/08/29/LeetCode101/"></a></p>
+        <p><span>本文标题:</span><a href="/2020/10/14/PNPNP_completeP_hard问题/"></a></p>
         <p><span>文章作者:</span><a href="/" title="访问 imlch 的个人博客">imlch</a></p>
-        <p><span>发布时间:</span>2020年08月29日 - 18时09分</p>
-        <p><span>最后更新:</span>2020年08月29日 - 18时21分</p>
+        <p><span>发布时间:</span>2020年10月14日 - 21时37分</p>
+        <p><span>最后更新:</span>2020年10月17日 - 20时43分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/08/29/LeetCode101/" title="">http://blog.imlch.cn/2020/08/29/LeetCode101/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/08/29/LeetCode101/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/10/14/PNPNP_completeP_hard问题/" title="">http://blog.imlch.cn/2020/10/14/PNPNP_completeP_hard问题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/10/14/PNPNP_completeP_hard问题/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -357,17 +371,8 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/09/05/Note200829/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/23/yield/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/10/10/LeetCode485/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -379,7 +384,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对称二叉树"><span class="toc-number">1.</span> <span class="toc-text">对称二叉树</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#P-NP-NP-complete-NP-hard问题"><span class="toc-number">1.</span> <span class="toc-text">P/NP/NP_complete/NP_hard问题</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -446,13 +451,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/09/05/Note200829/" title="上一篇: ">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2020/08/23/yield/" title="下一篇: ">
+            <a href="/2020/10/10/LeetCode485/" title="下一篇: ">
                 <i class="fa fa-angle-right"></i>
             </a>
         
