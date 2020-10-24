@@ -5,17 +5,21 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##思路  res List[str]：记录当前已被分隔的字符串，初始值为 [s]，未做分隔  for 循环 3 次，每次给 res 中所有字符串加一个 ‘.’，多分隔出一个整数，例如 [“2552551135”] 一次循环之后，变成 [“2.552551135”, “25.52551135”, “255.2551135”]，分隔出了一个合法整数  然后在最后面的那串又加 ‘.’，继续分隔，维护好">
+  <meta name="description" content="GRID SEARCH 网格搜索（KNN算法）寻找最合适的超参数KNN算法的超参数：1from sklearn.neighbors import KNeighborsClassifier KNeighborsClassifier 的超参数： 1. n_neighbors : 表示选择距离最近的K个点来投票的数量。 1knn_clf = KNeighborsClassifier(n_neighbor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://blog.imlch.cn/2020/08/15/LeetCode93/index.html">
+<meta property="og:url" content="http://blog.imlch.cn/2020/10/15/KNN的超参数/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##思路  res List[str]：记录当前已被分隔的字符串，初始值为 [s]，未做分隔  for 循环 3 次，每次给 res 中所有字符串加一个 ‘.’，多分隔出一个整数，例如 [“2552551135”] 一次循环之后，变成 [“2.552551135”, “25.52551135”, “255.2551135”]，分隔出了一个合法整数  然后在最后面的那串又加 ‘.’，继续分隔，维护好">
+<meta property="og:description" content="GRID SEARCH 网格搜索（KNN算法）寻找最合适的超参数KNN算法的超参数：1from sklearn.neighbors import KNeighborsClassifier KNeighborsClassifier 的超参数： 1. n_neighbors : 表示选择距离最近的K个点来投票的数量。 1knn_clf = KNeighborsClassifier(n_neighbor">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-29T10:10:04.017Z">
+<meta property="og:image" content="https://www.freesion.com/images/1/8393acb28450a43af3f02c4d7e585731.png">
+<meta property="og:image" content="https://www.freesion.com/images/710/484692939f71989b1c3609b2f032f53e.png">
+<meta property="og:image" content="https://www.freesion.com/images/683/1792b7676810ed8fc89ba5abccccc453.png">
+<meta property="og:updated_time" content="2020-10-24T07:40:17.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="##思路  res List[str]：记录当前已被分隔的字符串，初始值为 [s]，未做分隔  for 循环 3 次，每次给 res 中所有字符串加一个 ‘.’，多分隔出一个整数，例如 [“2552551135”] 一次循环之后，变成 [“2.552551135”, “25.52551135”, “255.2551135”]，分隔出了一个合法整数  然后在最后面的那串又加 ‘.’，继续分隔，维护好">
+<meta name="twitter:description" content="GRID SEARCH 网格搜索（KNN算法）寻找最合适的超参数KNN算法的超参数：1from sklearn.neighbors import KNeighborsClassifier KNeighborsClassifier 的超参数： 1. n_neighbors : 表示选择距离最近的K个点来投票的数量。 1knn_clf = KNeighborsClassifier(n_neighbor">
+<meta name="twitter:image" content="https://www.freesion.com/images/1/8393acb28450a43af3f02c4d7e585731.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -247,11 +251,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-LeetCode93" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-KNN的超参数" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/08/15/LeetCode93/" class="article-date">
-      <time datetime="2020-08-15T10:37:35.600Z" itemprop="datePublished">2020-08-15</time>
+      <a href="/2020/10/15/KNN的超参数/" class="article-date">
+      <time datetime="2020-10-15T15:17:17.312Z" itemprop="datePublished">2020-10-15</time>
 </a>
     </div>
   
@@ -263,19 +267,35 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##思路</p>
-<ul>
-<li><p>res List[str]：记录当前已被分隔的字符串，初始值为 [s]，未做分隔</p>
-</li>
-<li><p>for 循环 3 次，每次给 res 中所有字符串加一个 ‘.’，多分隔出一个整数，例如 [“2552551135”] 一次循环之后，变成 [“2.552551135”, “25.52551135”, “255.2551135”]，分隔出了一个合法整数</p>
-</li>
-<li><p>然后在最后面的那串又加 ‘.’，继续分隔，维护好加 ‘.’ 分隔的位置</p>
-</li>
-<li>添加三个 ‘.’ 后，分隔出的前三个整数都已满足条件，只需检验一下分隔出的最后一个整数即可，若满足条件，则四个整数都满足条件</li>
-</ul>
-<p>##代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">validInt</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> s <span class="keyword">and</span> int(s) &lt; <span class="number">256</span>:</span><br><span class="line">            <span class="keyword">if</span> s[<span class="number">0</span>] != <span class="string">'0'</span> <span class="keyword">or</span> s == <span class="string">'0'</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">restoreIpAddresses</span><span class="params">(self, s: str)</span>:</span></span><br><span class="line">    res = [s]</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        res_now = []</span><br><span class="line">        <span class="keyword">for</span> si <span class="keyword">in</span> res:</span><br><span class="line">            last = si.split(<span class="string">'.'</span>)[<span class="number">-1</span>]</span><br><span class="line">            idx = len(si) - len(last)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(last)):</span><br><span class="line">                <span class="keyword">if</span> i &gt; <span class="number">2</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">if</span> int(last[:i + <span class="number">1</span>]) &lt; <span class="number">256</span>:</span><br><span class="line">                    si_now = si[: idx + i + <span class="number">1</span>] + <span class="string">'.'</span> + si[idx + i + <span class="number">1</span> :]</span><br><span class="line">                    res_now.append(si_now)</span><br><span class="line">                <span class="keyword">if</span> last[<span class="number">0</span>] == <span class="string">'0'</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        res = res_now</span><br><span class="line"></span><br><span class="line">    res_now = []</span><br><span class="line">    <span class="keyword">for</span> si <span class="keyword">in</span> res:</span><br><span class="line">        last = si.split(<span class="string">'.'</span>)[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">if</span> self.validInt(last):</span><br><span class="line">            res_now.append(si)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res_now</span><br></pre></td></tr></table></figure>
-
+        <h2 id="GRID-SEARCH-网格搜索（KNN算法）寻找最合适的超参数"><a href="#GRID-SEARCH-网格搜索（KNN算法）寻找最合适的超参数" class="headerlink" title="GRID SEARCH 网格搜索（KNN算法）寻找最合适的超参数"></a>GRID SEARCH 网格搜索（KNN算法）寻找最合适的超参数</h2><h2 id="KNN算法的超参数："><a href="#KNN算法的超参数：" class="headerlink" title="KNN算法的超参数："></a>KNN算法的超参数：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br></pre></td></tr></table></figure>
+<p><strong>KNeighborsClassifier 的超参数：</strong></p>
+<p><strong>1. n_neighbors : 表示选择距离最近的K个点来投票的数量。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">knn_clf = KNeighborsClassifier(n_neighbors=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>2.weights ：表示最近的K个点中，是否考虑距离的权重；</strong></p>
+<p>weights = uniform （默认）表示不考虑权重</p>
+<p>weighs = distance 表示考虑距离的权重</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">knn_clf = KNeighborsClassifier(n_neighbors=3 , weights = &apos;distance&apos;)</span><br></pre></td></tr></table></figure>
+<p><strong>3. p ：表示选择的距离类型；只有当 weights = ‘distance’ 时，p才有意义；</strong></p>
+<p>p = 1 表示选择曼哈顿距离</p>
+<p>p = 2 表示选择欧拉距离（默认）</p>
+<p>p &gt;=3 表示选择其他距离</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">knn_clf = KNeighborsClassifier(n_neighbors=3 , weights = &apos;distance&apos; , p = 1)</span><br></pre></td></tr></table></figure>
+<p><strong>4. KNN算法还有其他超参数，暂时不考虑</strong></p>
+<p>具体可以参考：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html</a></p>
+<h2 id="GRID-SEARCH-网格搜索"><a href="#GRID-SEARCH-网格搜索" class="headerlink" title="GRID SEARCH 网格搜索"></a>GRID SEARCH 网格搜索</h2><p><strong>1. 创建KNN实例，设置需要搜寻的超参数格式，用字典的形式表示</strong></p>
+<p><strong><strong>*字典的键 表示参数的名称 ； 对应的值放在列表中，表示需要搜寻的参数值*</strong></strong></p>
+<p><img src="https://www.freesion.com/images/1/8393acb28450a43af3f02c4d7e585731.png" alt="img"></p>
+<p><strong>2. 用GridSearchCV 来网格搜索</strong></p>
+<p><img src="https://www.freesion.com/images/710/484692939f71989b1c3609b2f032f53e.png" alt="img"></p>
+<p><strong>3. fit 结束后</strong></p>
+<p>调用 .best_estimator_ ，可以返回最佳的分类器</p>
+<p>调用 .best_score_ ， 可以返回最佳分类器对应的准确度</p>
+<p>调用 .best_params_ ，可以返回最佳分类器对应的参数</p>
+<p><img src="https://www.freesion.com/images/683/1792b7676810ed8fc89ba5abccccc453.png" alt="img"></p>
+<p><strong>4. GridsearchCV 中的准确度（score）采用的是交叉验证（Cross-validation）得来的分数；不是通过 test数据集验证；</strong></p>
+<h2 id="其他超参数：N-JOBS-和-VERBOSE"><a href="#其他超参数：N-JOBS-和-VERBOSE" class="headerlink" title="其他超参数：N_JOBS 和 VERBOSE"></a>其他超参数：N_JOBS 和 VERBOSE</h2><p>n_jobs 参数，表示为计算机分配几个核来并行执行搜索 ， n_jobs = -1 表示计算机有几个核就分配几个；</p>
+<p>verbose 参数，表示在搜索的过程中 输出过程， 参数为整数，越大表示输出的内容月详细</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">grid_search = GridSearchCV(knn_clf,param_grid,n_jobs = <span class="number">-1</span>,verbose=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">grid_search.fit(X_train,y_train)</span><br><span class="line">Fitting <span class="number">3</span> folds <span class="keyword">for</span> each of <span class="number">60</span> candidates, totalling <span class="number">180</span> fits</span><br><span class="line">[Parallel(n_jobs=<span class="number">-1</span>)]: Done  <span class="number">17</span> tasks      | elapsed:   <span class="number">10.8</span>s</span><br><span class="line">[Parallel(n_jobs=<span class="number">-1</span>)]: Done  <span class="number">90</span> tasks      | elapsed:   <span class="number">35.6</span>s</span><br><span class="line">Wall time: <span class="number">1</span>min <span class="number">14</span>s</span><br><span class="line">[Parallel(n_jobs=<span class="number">-1</span>)]: Done <span class="number">180</span> out of <span class="number">180</span> | elapsed:  <span class="number">1.2</span>min finished</span><br></pre></td></tr></table></figure>
       
       
         <div class="page-reward">
@@ -330,13 +350,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/08/15/LeetCode93/"></a></p>
+        <p><span>本文标题:</span><a href="/2020/10/15/KNN的超参数/"></a></p>
         <p><span>文章作者:</span><a href="/" title="访问 imlch 的个人博客">imlch</a></p>
-        <p><span>发布时间:</span>2020年08月15日 - 18时37分</p>
-        <p><span>最后更新:</span>2020年08月29日 - 18时10分</p>
+        <p><span>发布时间:</span>2020年10月15日 - 23时17分</p>
+        <p><span>最后更新:</span>2020年10月24日 - 15时40分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/08/15/LeetCode93/" title="">http://blog.imlch.cn/2020/08/15/LeetCode93/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/08/15/LeetCode93/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/10/15/KNN的超参数/" title="">http://blog.imlch.cn/2020/10/15/KNN的超参数/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/10/15/KNN的超参数/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -349,17 +369,8 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/08/20/Timsort/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/15/LeetCode99/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/10/14/PNPNP_completeP_hard问题/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -371,7 +382,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GRID-SEARCH-网格搜索（KNN算法）寻找最合适的超参数"><span class="toc-number">1.</span> <span class="toc-text">GRID SEARCH 网格搜索（KNN算法）寻找最合适的超参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KNN算法的超参数："><span class="toc-number">2.</span> <span class="toc-text">KNN算法的超参数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GRID-SEARCH-网格搜索"><span class="toc-number">3.</span> <span class="toc-text">GRID SEARCH 网格搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他超参数：N-JOBS-和-VERBOSE"><span class="toc-number">4.</span> <span class="toc-text">其他超参数：N_JOBS 和 VERBOSE</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -438,13 +449,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/08/20/Timsort/" title="上一篇: ">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2020/08/15/LeetCode99/" title="下一篇: ">
+            <a href="/2020/10/14/PNPNP_completeP_hard问题/" title="下一篇: ">
                 <i class="fa fa-angle-right"></i>
             </a>
         
