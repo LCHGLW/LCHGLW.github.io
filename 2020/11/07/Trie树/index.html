@@ -12,15 +12,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="一、引言212. 单词搜索 II难度困难278 给定一个二维网格 board 和一个字典中的单词列表 words，找出所有同时在二维网格和字典中出现的单词。 单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母在一个单词中不允许被重复使用。 示例: 12345678910输入: words = [&amp;quot;oath&amp;quot">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://www.freesion.com/images/1/8393acb28450a43af3f02c4d7e585731.png">
 <meta property="og:image" content="https://segmentfault.com/img/bVK64x?w=788&h=774">
-<meta property="og:image" content="https://segmentfault.com/img/bVK2Q6?w=522&h=317">
-<meta property="og:image" content="https://segmentfault.com/img/bVK2Q6?w=522&h=317">
-<meta property="og:image" content="https://segmentfault.com/img/bVK5pj?w=431&h=635">
-<meta property="og:updated_time" content="2020-11-07T08:58:13.542Z">
+<meta property="og:updated_time" content="2020-11-08T06:51:59.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="一、引言212. 单词搜索 II难度困难278 给定一个二维网格 board 和一个字典中的单词列表 words，找出所有同时在二维网格和字典中出现的单词。 单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母在一个单词中不允许被重复使用。 示例: 12345678910输入: words = [&amp;quot;oath&amp;quot">
-<meta name="twitter:image" content="https://segmentfault.com/img/bVK64x?w=788&h=774">
+<meta name="twitter:image" content="https://www.freesion.com/images/1/8393acb28450a43af3f02c4d7e585731.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -277,8 +275,8 @@
 <p><strong>提示:</strong></p>
 <p>Trie树应用广泛， NLP 中一般会用其存储大量的字典字符以用于文本的快速分词；除此之外，典型应用场景还包括大批量文本的：词频统计、字符串查询和模糊匹配（比如关键词的模糊匹配）、字符串排序等任务；（还比如搜索引擎）。由于 Trie 大幅降低了无谓的字符串比较，因此在执行上述任务时，其效率非常的高。</p>
 <h2 id="二、Trie-树的简介"><a href="#二、Trie-树的简介" class="headerlink" title="二、Trie 树的简介"></a>二、Trie 树的简介</h2><p>Trie 树中文名叫字典树、前缀树等等。这些名字暗示其与字符的处理有关，事实也确实如此，它主要用途就是将字符串（当然也可以不限于字符串）整合成树形。</p>
-<p><img src="https://segmentfault.com/img/bVK64x?w=788&amp;h=774" alt="clipboard.png"></p>
-<p><img src="https://segmentfault.com/img/bVK2Q6?w=522&amp;h=317" alt="http://www.ahathinking.com/archives/14.html"></p>
+<p><img src="https://www.freesion.com/images/1/8393acb28450a43af3f02c4d7e585731.png" alt="img"></p>
+<p><img src="https://segmentfault.com/img/bVK64x?w=788&amp;h=774" alt="img"></p>
 <p>这个树里面每一个方块代表一个节点，其中 ”Root” 表示根节点，不代表任何字符；紫色代表分支节点；绿色代表叶子节点。除根节点外<strong>每一个节点都只包含一个字符</strong>。从根节点到叶子节点，路径上经过的字符连接起来，构成一个词。而叶子节点内的数字代表该词在字典树中所处的链路（字典中有多少个词就有多少条链路），具有共同前缀的链路称为串。除此之外，    还需特别强调 Trie 树的以下几个特点：</p>
 <ol>
 <li><p>具有相同前缀的词必须位于同一个串内；例如“清华”、“清新”两个词都有“清”这个前缀，那么在 Trie 树上只需构建一个“清”节点，“华”和“新”节点共用一个父节点即可，如此两个词便只需三个节点便可存储，这在一定程度上减少了字典的存储空间。</p>
@@ -309,11 +307,10 @@
 </ol>
 <h2 id="五、Trie-树的几种实现"><a href="#五、Trie-树的几种实现" class="headerlink" title="五、Trie 树的几种实现"></a>五、Trie 树的几种实现</h2><h3 id="5-1、Array-Trie-树"><a href="#5-1、Array-Trie-树" class="headerlink" title="5.1、Array Trie 树"></a>5.1、Array Trie 树</h3><p>很多文章里将这种实现称为“标准 Trie 树”，但其实它只是 Trie 众多实现中的一种而已，由于这种实现结构简单，检索效率很好，作为讲解示例很不错，因此特地改称其为“经典 Trie 树”，这里引用一下别人家的示例图[2]：</p>
 <blockquote>
-<p>abc、d、da、dda 四个字符串构成的 Trie 树，如果是字符串会在节点的尾部进行标记。没有后续字符的 branch 分支指向NULL<br><img src="https://segmentfault.com/img/bVK2Q6?w=522&amp;h=317" alt="http://www.ahathinking.com/archives/14.html"></p>
+<p>abc、d、da、dda 四个字符串构成的 Trie 树，如果是字符串会在节点的尾部进行标记。没有后续字符的 branch 分支指向NULL</p>
 </blockquote>
 <p>如上图，这种实现的特点是：<strong>每个节点都由指针数组存储，每个节点的所有子节点都位于一个数组之中，每个数组都是完全一样的</strong>。对于英文而言，每个数组有27个指针，其中一个作为词的终结符，另外 26 个依次代表字母表中的一个字母，对应指针指向下一个状态，若没有后续字符则指向NULL。由于数组取词的复杂度为O(1)</p>
 <h3 id="5-2、List-Trie-树"><a href="#5-2、List-Trie-树" class="headerlink" title="5.2、List Trie 树"></a>5.2、List Trie 树</h3><p>由于数组的长度是不可变，因此经典 Trie 树存在着明显的空间浪费。但是如果将每一层都换成可变数组（不同语言对这种数据结构称呼不同，比如在 Python 中为List，C# 称为 LinkedList）来存储节点（见下图[3]），每层可以根据节点的数量动态调整数组的长度，就可以避免大量的空间浪费。下图就是这种实现的图例[3]：</p>
-<p><img src="https://segmentfault.com/img/bVK5pj?w=431&amp;h=635" alt="clipboard.png"></p>
 <h3 id="5-3、Hash-Trie-树"><a href="#5-3、Hash-Trie-树" class="headerlink" title="5.3、Hash Trie 树"></a>5.3、Hash Trie 树</h3><p>可变数组取词速度太慢，用一组键值对字典类型代替可变数组：其中每个节点包含一组 Key-Value，每个 Key 对应该节点下的一个子节点字符，value 则指向相应的后一个状态。这种方式可以有效的减少空间浪费，同时由于键值对本质上就是一个哈希实现，因此理论上其查词效率也很高（理想状态下取词复杂度为O(1)</p>
 <h3 id="5-4、Double-array-Trie-树"><a href="#5-4、Double-array-Trie-树" class="headerlink" title="5.4、Double-array Trie 树"></a>5.4、Double-array Trie 树</h3><p>双数组 Trie 树是目前 Trie 树各种实现中性能和存储空间均达到很好效果的实现</p>
 
@@ -374,7 +371,7 @@
         <p><span>本文标题:</span><a href="/2020/11/07/Trie树/"></a></p>
         <p><span>文章作者:</span><a href="/" title="访问 imlch 的个人博客">imlch</a></p>
         <p><span>发布时间:</span>2020年11月07日 - 18时28分</p>
-        <p><span>最后更新:</span>2020年11月07日 - 16时58分</p>
+        <p><span>最后更新:</span>2020年11月08日 - 14时51分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2020/11/07/Trie树/" title="">http://blog.imlch.cn/2020/11/07/Trie树/</a>
             <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/11/07/Trie树/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
