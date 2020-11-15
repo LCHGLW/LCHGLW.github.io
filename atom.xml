@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.imlch.cn/"/>
-  <updated>2020-11-08T07:04:53.111Z</updated>
+  <updated>2020-11-15T13:56:22.806Z</updated>
   <id>http://blog.imlch.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://blog.imlch.cn/2020/11/15/Hexo%E8%BD%AC%E4%B9%89%E5%A4%B1%E8%B4%A5/"/>
+    <id>http://blog.imlch.cn/2020/11/15/Hexo转义失败/</id>
+    <published>2020-11-15T13:55:33.251Z</published>
+    <updated>2020-11-15T13:56:22.806Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在 Hexo 搭建的博客中对文章进行编写，经常会用到一些特殊字符需要转译，比如 <code>-</code>、<code>.</code>、空格、制表符等等，在正常情况下可以使用 <code>\</code> 进行转译，但是有一些字符无法转译，使用后在执行 <code>hexo server</code> 命令的时候会报错。</p><p><strong>报错信息：</strong></p><blockquote><p>Unhandled rejection Template render error: (unknown path) [Line 7, Column 23]<br>Error: Unable to call <code>worldcount</code>, which is undefined or falsey……</p></blockquote><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>报错的原因是，Hexo 编译时发生错误，可能是文章中存在特殊字符，如：{ [ ( ) ] } 等等。如下面这段代码：</p><p><strong>在页面中：</strong></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; worldcount(post.content) &#125;&#125;</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure><p><strong>在 Markdown 中：</strong></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&amp;#123;&amp;#123; worldcount&amp;#40;post.content&amp;#41; &amp;#125;&amp;#125;</span><br><span class="line">1</span><br></pre></td></tr></table></figure><p>在 Markdown 中使用 <code>\</code> 无法转译的字符需要使用字符的命名实体或十进制编码，如上面代码中。</p><p><strong><em>注意：需要转义的字符只是文本中的特殊字符，代码块中的特殊字符无需转译或使用转译字符。</em></strong></p><h2 id="常见特殊字符"><a href="#常见特殊字符" class="headerlink" title="常见特殊字符"></a>常见特殊字符</h2><p>常用特殊字符转译字符对照表：</p><table><thead><tr><th>特殊符号</th><th>命名实体</th><th>十进制编码</th></tr></thead><tbody><tr><td>空格</td><td>&nbsp;</td><td>&#160;</td></tr><tr><td>全角空格</td><td>&emsp;</td><td>&#12288;</td></tr><tr><td>’</td><td>&apos;</td><td>&#39;</td></tr><tr><td>“</td><td>&quot;</td><td>&#34;</td></tr><tr><td>(</td><td>—</td><td>&#40;</td></tr><tr><td>)</td><td>—</td><td>&#41;</td></tr><tr><td>&lt;</td><td>&lt;</td><td>&#60;</td></tr><tr><td>&gt;</td><td>&gt;</td><td>&#62;</td></tr><tr><td>[</td><td>—</td><td>&#91;</td></tr><tr><td>]</td><td>—</td><td>&#93;</td></tr><tr><td>{</td><td>—</td><td>&#123;</td></tr><tr><td>}</td><td>—</td><td>&#125;</td></tr><tr><td>´</td><td>&acute;</td><td>&#180;</td></tr><tr><td>°</td><td>&deg;</td><td>&#176;</td></tr><tr><td>®</td><td>&reg;</td><td>&#174;</td></tr><tr><td>©</td><td>&copy;</td><td>&#169;</td></tr></tbody></table><p>常用数学转译字符对照表：</p><table><thead><tr><th>特殊符号</th><th>命名实体</th><th>十进制编码</th></tr></thead><tbody><tr><td>≤</td><td>&le;</td><td>&#8804;</td></tr><tr><td>≥</td><td>&ge;</td><td>&#8805;</td></tr><tr><td>≈</td><td>&asymp;</td><td>&#8773;</td></tr><tr><td>≠</td><td>&ne;</td><td>&#8800;</td></tr><tr><td>∩</td><td>&cap;</td><td>&#8745;</td></tr><tr><td>∪</td><td>&cup;</td><td>&#8746;</td></tr><tr><td>∠</td><td>&ang;</td><td>&#8736;</td></tr><tr><td>∞</td><td>&infin;</td><td>&#8734;</td></tr><tr><td>±</td><td>&plusmn;</td><td>&#177;</td></tr><tr><td>√</td><td>&radic;</td><td>&#8730;</td></tr><tr><td>∑</td><td>&sum;</td><td>&#8722;</td></tr><tr><td>∫</td><td>&int;</td><td>&#8747;</td></tr><tr><td>Δ</td><td>&Delta;</td><td>&#916;</td></tr></tbody></table><p>常用希腊字母转译字符对照表：</p><table><thead><tr><th>特殊符号</th><th>命名实体</th><th>十进制编码</th></tr></thead><tbody><tr><td>Φ</td><td>&Phi;</td><td>&#934;</td></tr><tr><td>Ω</td><td>&Omega;</td><td>&#937;</td></tr><tr><td>α</td><td>&alpha;</td><td>&#945;</td></tr><tr><td>β</td><td>&beta;</td><td>&#946;</td></tr><tr><td>γ</td><td>&gamma;</td><td>&#947;</td></tr><tr><td>δ</td><td>&delta;</td><td>&#948;</td></tr><tr><td>ε</td><td>&epsilon;</td><td>&#949;</td></tr><tr><td>ζ</td><td>&zeta;</td><td>&#950;</td></tr><tr><td>η</td><td>&eta;</td><td>&#951;</td></tr><tr><td>θ</td><td>&theta;</td><td>&#952;</td></tr><tr><td>λ</td><td>&lambda;</td><td>&#955;</td></tr><tr><td>μ</td><td>&mu;</td><td>&#956;</td></tr><tr><td>ξ</td><td>&xi;</td><td>&#958;</td></tr><tr><td>π</td><td>&pi;</td><td>&#960;</td></tr><tr><td>ρ</td><td>&rho;</td><td>&#961;</td></tr><tr><td>σ</td><td>&sigma;</td><td>&#963;</td></tr><tr><td>φ</td><td>&phi;</td><td>&#966;</td></tr><tr><td>ψ</td><td>&psi;</td><td>&#968;</td></tr><tr><td>ω</td><td>&omega;</td><td>&#969;</td></tr><tr><td>∂</td><td>&part;</td><td>&#8706;</td></tr><tr><td>∅</td><td>&empty;</td><td>&#8709;</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;在 Hexo 搭建的博客中对文章进行编写，经常会用到一些特殊字符需要转译，比如 &lt;code&gt;-&lt;/code&gt;、&lt;code&gt;.
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
