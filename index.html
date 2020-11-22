@@ -250,6 +250,74 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-自定义jupyter主题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/22/自定义jupyter主题/" class="article-date">
+      <time datetime="2020-11-22T14:46:03.841Z" itemprop="datePublished">2020-11-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>原生的白色主题不适合在晚上长时间使用，尝试更换整个主题或者自定义透明背景等细节</p>
+<p>原生的字体也比较小，尝试修改字体类型及大小</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul>
+<li>通过修改本地路径的css文件，修改网页样式的原理来完成主题修改</li>
+<li>不熟悉原生CSS文件架构，可选择使用jupyter thems 这个包来直接安装主题</li>
+</ul>
+<p>*<em>可选择主题</em>plotting style*</p>
+<h6 id="markdown-equations"><a href="#markdown-equations" class="headerlink" title="markdown/equations"></a><em>markdown/equations</em></h6><p><a href="https://github.com/dunovank/jupyter-themes/blob/master/screens/oceans16_markdown.png" target="_blank" rel="noopener"><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/oceans16_markdown.png" alt="image"></a></p>
+<h6 id="pandas-dataframes"><a href="#pandas-dataframes" class="headerlink" title="pandas dataframes"></a><em>pandas dataframes</em></h6><p><a href="https://github.com/dunovank/jupyter-themes/blob/master/screens/grade3_table.png" target="_blank" rel="noopener"><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/grade3_table.png" alt="image"></a></p>
+<h6 id="command-palette"><a href="#command-palette" class="headerlink" title="command palette"></a><em>command palette</em></h6><p><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/oceans16_command_palette.png" alt="image"></p>
+<h6 id="grade3-syntax"><a href="#grade3-syntax" class="headerlink" title="grade3 syntax"></a><em>grade3 syntax</em></h6><p><a href="https://github.com/dunovank/jupyter-themes/blob/master/screens/grade3_code_headers.png" target="_blank" rel="noopener"><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/grade3_code_headers.png" alt="image"></a></p>
+<h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> jupyterthemes</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>参数说明</p>
+<p>-t 设置主题， -f 设置代码的字体， -nf 设置notebook的字体，具体参数说明<br><img src="https://img-blog.csdnimg.cn/20190320155914209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzUwOTI2Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>更换主题</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -t chesterish</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>恢复默认主题：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -r</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看可用主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -l</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Hexo转义失败" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1300,78 +1368,6 @@
 </table>
 <p>函数计算虽然适用于很多场景，但也不是覆盖全部应用场景的万金油。例如某些业务在一天中没有明显的请求波峰波谷，请求相对平缓，那么使用函数计算成本不见得会节省多少。</p>
 <p>Serverless框架作为新兴的技术，目前相应的支持开发工具较少，整体框架还在探索中。另外，函数计算的执行环境是不记录状态的，有些耦合性较强的应用也不太适合用Serverless这种框架。受限于资源大小分配，一些大型的应用程序也不太容易能拆分搬上来。</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Note200829" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/09/05/Note200829/" class="article-date">
-      <time datetime="2020-09-05T10:12:11.131Z" itemprop="datePublished">2020-09-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="Xpath"><a href="#Xpath" class="headerlink" title="Xpath"></a>Xpath</h2><p>xpath如何取包含多个class属性</p>
-<p>但是如果html是</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div class="test demo"&gt;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo test"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test demo2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>如果目标 class 不一定是第一个，那么：</p>
-<blockquote>
-<p>//div[contains(concat(‘ ‘, @class, ‘ ‘), ‘demo’)]     ##只想选出有demo这个class的对象</p>
-</blockquote>
-<p>取多个class属性值的元素</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'a b'</span>&gt;</span>test<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>可以用如下的表达式：</p>
-<blockquote>
-<p>xpath(‘//div[contains(@class,”a”)]’)  #它会取得所有class为a的元素</p>
-</blockquote>
-<blockquote>
-<p>xpath(‘//div[contains(@class,”a”) and contains(@class,”b”)]’) #它会取class同时有a和b的元素</p>
-</blockquote>
-<p>##应对反爬虫措施解决方案</p>
-<h3 id="user-agent-伪装和轮换"><a href="#user-agent-伪装和轮换" class="headerlink" title="user_agent 伪装和轮换"></a>user_agent 伪装和轮换</h3><p>不同浏览器的不同版本都有不同的user_agent，是浏览器类型的详细信息，也是浏览器提交Http请求的重要头部信息。我们可以在每次请求的时候提供不同的user_agent，绕过网站检测客户端的反爬虫机制。比如说，可以把很多的user_agent放在一个列表中，每次随机选一个用于提交访问请求。有一个提供各种user_agent的网站：</p>
-<p><a href="http://www.useragentstring.com/" target="_blank" rel="noopener">http://www.useragentstring.com/</a></p>
-<p>最近又看到一个专门提供伪装浏览器身份的开源库，名字取得很直白：</p>
-<p><a href="https://github.com/hellysmile/fake-useragent" target="_blank" rel="noopener">fake-useragent</a></p>
-<h3 id="使用代理IP和轮换"><a href="#使用代理IP和轮换" class="headerlink" title="使用代理IP和轮换"></a>使用代理IP和轮换</h3><p>检查ip的访问情况是网站的反爬机制最喜欢也最喜欢用的方式。这种时候就可以更换不同的ip地址来爬取内容。当然，你有很多有公网ip地址的主机或者vps是更好的选择，如果没有的话就可以考虑使用代理，让代理服务器去帮你获得网页内容，然后再转发回你的电脑。代理按透明度可以分为透明代理、匿名代理和高度匿名代理:</p>
-<ul>
-<li><strong>透明代理</strong>：目标网站知道你使用了代理并且知道你的源IP地址，这种代理显然不符合我们这里使用代理的初衷</li>
-<li><strong>匿名代理</strong>：匿名程度比较低，也就是网站知道你使用了代理，但是并不知道你的源IP地址</li>
-<li><strong>高匿代理</strong>：这是最保险的方式，目标网站既不知道你使用的代理更不知道你的源IP<br>代理的获取方式可以去购买，当然也可以去自己爬取免费的，<a href="http://www.xicidaili.com/nn/" target="_blank" rel="noopener">这里</a>有一个提供免费代理的网站，可以爬下来使用，但是免费的代理通常不够稳定。</li>
-</ul>
-<h3 id="设置访问时间间隔"><a href="#设置访问时间间隔" class="headerlink" title="设置访问时间间隔"></a>设置访问时间间隔</h3><p>很多网站的反爬虫机制都设置了访问间隔时间，一个IP如果短时间内超过了指定的次数就会进入“冷却CD”，所以除了轮换IP和user_agent<br>可以设置访问的时间间间隔长一点，比如没抓取一个页面休眠一个随机时间：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time，random</span><br><span class="line">time.sleep(random.random()*<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 
       
       

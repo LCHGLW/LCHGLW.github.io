@@ -5,17 +5,23 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="思路12[9,3,15,20,7][9,15,7,20,3]  1.用L表示左子树，P代表根，R代表右子树 2.中序序列可表示为 LPR, 后序序列可表示为 LRP 3.后序序列的最后一个元素是二叉树的根，如3 4.根据根的值可以把中序序列分为两部分[9]和[3,15,20, 7] 5.中序两部分元素个数分别为1，4 6.根据中序元素个数把后续分为两部分[9]和[15, 7, 20, 3] 7.用">
+  <meta name="description" content="问题描述原生的白色主题不适合在晚上长时间使用，尝试更换整个主题或者自定义透明背景等细节 原生的字体也比较小，尝试修改字体类型及大小 解决方案 通过修改本地路径的css文件，修改网页样式的原理来完成主题修改 不熟悉原生CSS文件架构，可选择使用jupyter thems 这个包来直接安装主题  *可选择主题plotting style* markdown/equations pandas dataf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://blog.imlch.cn/2020/09/26/LeetCode106/index.html">
+<meta property="og:url" content="http://blog.imlch.cn/2020/11/22/自定义jupyter主题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="思路12[9,3,15,20,7][9,15,7,20,3]  1.用L表示左子树，P代表根，R代表右子树 2.中序序列可表示为 LPR, 后序序列可表示为 LRP 3.后序序列的最后一个元素是二叉树的根，如3 4.根据根的值可以把中序序列分为两部分[9]和[3,15,20, 7] 5.中序两部分元素个数分别为1，4 6.根据中序元素个数把后续分为两部分[9]和[15, 7, 20, 3] 7.用">
+<meta property="og:description" content="问题描述原生的白色主题不适合在晚上长时间使用，尝试更换整个主题或者自定义透明背景等细节 原生的字体也比较小，尝试修改字体类型及大小 解决方案 通过修改本地路径的css文件，修改网页样式的原理来完成主题修改 不熟悉原生CSS文件架构，可选择使用jupyter thems 这个包来直接安装主题  *可选择主题plotting style* markdown/equations pandas dataf">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-26T10:00:43.478Z">
+<meta property="og:image" content="https://github.com/dunovank/jupyter-themes/raw/master/screens/oceans16_markdown.png">
+<meta property="og:image" content="https://github.com/dunovank/jupyter-themes/raw/master/screens/grade3_table.png">
+<meta property="og:image" content="https://github.com/dunovank/jupyter-themes/raw/master/screens/oceans16_command_palette.png">
+<meta property="og:image" content="https://github.com/dunovank/jupyter-themes/raw/master/screens/grade3_code_headers.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190320155914209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzUwOTI2Mw==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2020-11-22T15:05:07.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="思路12[9,3,15,20,7][9,15,7,20,3]  1.用L表示左子树，P代表根，R代表右子树 2.中序序列可表示为 LPR, 后序序列可表示为 LRP 3.后序序列的最后一个元素是二叉树的根，如3 4.根据根的值可以把中序序列分为两部分[9]和[3,15,20, 7] 5.中序两部分元素个数分别为1，4 6.根据中序元素个数把后续分为两部分[9]和[15, 7, 20, 3] 7.用">
+<meta name="twitter:description" content="问题描述原生的白色主题不适合在晚上长时间使用，尝试更换整个主题或者自定义透明背景等细节 原生的字体也比较小，尝试修改字体类型及大小 解决方案 通过修改本地路径的css文件，修改网页样式的原理来完成主题修改 不熟悉原生CSS文件架构，可选择使用jupyter thems 这个包来直接安装主题  *可选择主题plotting style* markdown/equations pandas dataf">
+<meta name="twitter:image" content="https://github.com/dunovank/jupyter-themes/raw/master/screens/oceans16_markdown.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -247,11 +253,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-LeetCode106" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-自定义jupyter主题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/09/26/LeetCode106/" class="article-date">
-      <time datetime="2020-09-26T09:57:11.853Z" itemprop="datePublished">2020-09-26</time>
+      <a href="/2020/11/22/自定义jupyter主题/" class="article-date">
+      <time datetime="2020-11-22T14:46:03.841Z" itemprop="datePublished">2020-11-22</time>
 </a>
     </div>
   
@@ -263,17 +269,31 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[9,3,15,20,7]</span><br><span class="line">[9,15,7,20,3]</span><br></pre></td></tr></table></figure>
-<ul>
-<li>1.用L表示左子树，P代表根，R代表右子树</li>
-<li>2.中序序列可表示为 LPR, 后序序列可表示为 LRP</li>
-<li>3.后序序列的最后一个元素是二叉树的根，如3</li>
-<li>4.根据根的值可以把中序序列分为两部分[9]和[3,15,20, 7]</li>
-<li>5.中序两部分元素个数分别为1，4</li>
-<li>6.根据中序元素个数把后续分为两部分[9]和[15, 7, 20, 3]</li>
-<li>7.用中序和后序对应的部分分别创建树的左子树和右子树</li>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>原生的白色主题不适合在晚上长时间使用，尝试更换整个主题或者自定义透明背景等细节</p>
+<p>原生的字体也比较小，尝试修改字体类型及大小</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul>
+<li>通过修改本地路径的css文件，修改网页样式的原理来完成主题修改</li>
+<li>不熟悉原生CSS文件架构，可选择使用jupyter thems 这个包来直接安装主题</li>
 </ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">buildTree</span><span class="params">(self, inorder: List[int], postorder: List[int])</span> -&gt; TreeNode:</span></span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(il, ir, pl, pr)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> (il == ir <span class="keyword">or</span> pl == pr):</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        </span><br><span class="line">            root = TreeNode(postorder[pr<span class="number">-1</span>])</span><br><span class="line">            inRootPos = inorder.index(root.val, il, ir)</span><br><span class="line">            rightSize = ir - inRootPos</span><br><span class="line">            </span><br><span class="line">            root.right = helper(inRootPos + <span class="number">1</span>, ir, pr - rightSize, pr - <span class="number">1</span>)</span><br><span class="line">            root.left = helper(il, inRootPos, pl, pr - rightSize)</span><br><span class="line">            <span class="keyword">return</span> root</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> helper(<span class="number">0</span>, len(inorder), <span class="number">0</span>, len(postorder))</span><br></pre></td></tr></table></figure>
+<p>*<em>可选择主题</em>plotting style*</p>
+<h6 id="markdown-equations"><a href="#markdown-equations" class="headerlink" title="markdown/equations"></a><em>markdown/equations</em></h6><p><a href="https://github.com/dunovank/jupyter-themes/blob/master/screens/oceans16_markdown.png" target="_blank" rel="noopener"><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/oceans16_markdown.png" alt="image"></a></p>
+<h6 id="pandas-dataframes"><a href="#pandas-dataframes" class="headerlink" title="pandas dataframes"></a><em>pandas dataframes</em></h6><p><a href="https://github.com/dunovank/jupyter-themes/blob/master/screens/grade3_table.png" target="_blank" rel="noopener"><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/grade3_table.png" alt="image"></a></p>
+<h6 id="command-palette"><a href="#command-palette" class="headerlink" title="command palette"></a><em>command palette</em></h6><p><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/oceans16_command_palette.png" alt="image"></p>
+<h6 id="grade3-syntax"><a href="#grade3-syntax" class="headerlink" title="grade3 syntax"></a><em>grade3 syntax</em></h6><p><a href="https://github.com/dunovank/jupyter-themes/blob/master/screens/grade3_code_headers.png" target="_blank" rel="noopener"><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/grade3_code_headers.png" alt="image"></a></p>
+<h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> jupyterthemes</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>参数说明</p>
+<p>-t 设置主题， -f 设置代码的字体， -nf 设置notebook的字体，具体参数说明<br><img src="https://img-blog.csdnimg.cn/20190320155914209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzUwOTI2Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>更换主题</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -t chesterish</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>恢复默认主题：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -r</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看可用主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -l</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
       
@@ -329,13 +349,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/09/26/LeetCode106/"></a></p>
+        <p><span>本文标题:</span><a href="/2020/11/22/自定义jupyter主题/"></a></p>
         <p><span>文章作者:</span><a href="/" title="访问 imlch 的个人博客">imlch</a></p>
-        <p><span>发布时间:</span>2020年09月26日 - 17时57分</p>
-        <p><span>最后更新:</span>2020年09月26日 - 18时00分</p>
+        <p><span>发布时间:</span>2020年11月22日 - 22时46分</p>
+        <p><span>最后更新:</span>2020年11月22日 - 23时05分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/09/26/LeetCode106/" title="">http://blog.imlch.cn/2020/09/26/LeetCode106/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/09/26/LeetCode106/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/11/22/自定义jupyter主题/" title="">http://blog.imlch.cn/2020/11/22/自定义jupyter主题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.imlch.cn/2020/11/22/自定义jupyter主题/　　作者: imlch" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -348,17 +368,8 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/10/10/LeetCode485/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/09/19/LeetCode114/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/11/15/Hexo转义失败/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -370,7 +381,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#markdown-equations"><span class="toc-number">2.0.0.0.1.</span> <span class="toc-text">markdown/equations</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#pandas-dataframes"><span class="toc-number">2.0.0.0.2.</span> <span class="toc-text">pandas dataframes</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#command-palette"><span class="toc-number">2.0.0.0.3.</span> <span class="toc-text">command palette</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#grade3-syntax"><span class="toc-number">2.0.0.0.4.</span> <span class="toc-text">grade3 syntax</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体过程"><span class="toc-number">3.</span> <span class="toc-text">具体过程</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -437,13 +448,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/10/10/LeetCode485/" title="上一篇: ">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2020/09/19/LeetCode114/" title="下一篇: ">
+            <a href="/2020/11/15/Hexo转义失败/" title="下一篇: ">
                 <i class="fa fa-angle-right"></i>
             </a>
         

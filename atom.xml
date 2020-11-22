@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.imlch.cn/"/>
-  <updated>2020-11-15T13:56:22.806Z</updated>
+  <updated>2020-11-22T15:05:07.249Z</updated>
   <id>http://blog.imlch.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://blog.imlch.cn/2020/11/22/%E8%87%AA%E5%AE%9A%E4%B9%89jupyter%E4%B8%BB%E9%A2%98/"/>
+    <id>http://blog.imlch.cn/2020/11/22/自定义jupyter主题/</id>
+    <published>2020-11-22T14:46:03.841Z</published>
+    <updated>2020-11-22T15:05:07.249Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>原生的白色主题不适合在晚上长时间使用，尝试更换整个主题或者自定义透明背景等细节</p><p>原生的字体也比较小，尝试修改字体类型及大小</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul><li>通过修改本地路径的css文件，修改网页样式的原理来完成主题修改</li><li>不熟悉原生CSS文件架构，可选择使用jupyter thems 这个包来直接安装主题</li></ul><p>*<em>可选择主题</em>plotting style*</p><h6 id="markdown-equations"><a href="#markdown-equations" class="headerlink" title="markdown/equations"></a><em>markdown/equations</em></h6><p><a href="https://github.com/dunovank/jupyter-themes/blob/master/screens/oceans16_markdown.png" target="_blank" rel="noopener"><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/oceans16_markdown.png" alt="image"></a></p><h6 id="pandas-dataframes"><a href="#pandas-dataframes" class="headerlink" title="pandas dataframes"></a><em>pandas dataframes</em></h6><p><a href="https://github.com/dunovank/jupyter-themes/blob/master/screens/grade3_table.png" target="_blank" rel="noopener"><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/grade3_table.png" alt="image"></a></p><h6 id="command-palette"><a href="#command-palette" class="headerlink" title="command palette"></a><em>command palette</em></h6><p><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/oceans16_command_palette.png" alt="image"></p><h6 id="grade3-syntax"><a href="#grade3-syntax" class="headerlink" title="grade3 syntax"></a><em>grade3 syntax</em></h6><p><a href="https://github.com/dunovank/jupyter-themes/blob/master/screens/grade3_code_headers.png" target="_blank" rel="noopener"><img src="https://github.com/dunovank/jupyter-themes/raw/master/screens/grade3_code_headers.png" alt="image"></a></p><h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> jupyterthemes</span><br></pre></td></tr></table></figure><ul><li><p>参数说明</p><p>-t 设置主题， -f 设置代码的字体， -nf 设置notebook的字体，具体参数说明<br><img src="https://img-blog.csdnimg.cn/20190320155914209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzUwOTI2Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p></li><li><p>更换主题</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -t chesterish</span><br></pre></td></tr></table></figure></li><li><p>恢复默认主题：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -r</span><br></pre></td></tr></table></figure></li><li><p>查看可用主题：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -l</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;原生的白色主题不适合在晚上长时间使用，尝试更换整个主题或者自定义透明背景等细节&lt;/p&gt;
+&lt;p&gt;原生的字体也比较小，尝试修改字
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -63,7 +85,7 @@
     <link href="http://blog.imlch.cn/2020/10/15/KNN%E7%9A%84%E8%B6%85%E5%8F%82%E6%95%B0/"/>
     <id>http://blog.imlch.cn/2020/10/15/KNN的超参数/</id>
     <published>2020-10-15T15:17:17.312Z</published>
-    <updated>2020-11-08T06:36:26.445Z</updated>
+    <updated>2020-11-08T06:51:20.037Z</updated>
     
     <content type="html"><![CDATA[<h2 id="GRID-SEARCH-网格搜索（KNN算法）寻找最合适的超参数"><a href="#GRID-SEARCH-网格搜索（KNN算法）寻找最合适的超参数" class="headerlink" title="GRID SEARCH 网格搜索（KNN算法）寻找最合适的超参数"></a>GRID SEARCH 网格搜索（KNN算法）寻找最合适的超参数</h2><h2 id="KNN算法的超参数："><a href="#KNN算法的超参数：" class="headerlink" title="KNN算法的超参数："></a>KNN算法的超参数：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br></pre></td></tr></table></figure><p><strong>KNeighborsClassifier 的超参数：</strong></p><p><strong>1. n_neighbors : 表示选择距离最近的K个点来投票的数量。</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">knn_clf = KNeighborsClassifier(n_neighbors=<span class="number">3</span>)</span><br></pre></td></tr></table></figure><p><strong>2.weights ：表示最近的K个点中，是否考虑距离的权重；</strong></p><p>weights = uniform （默认）表示不考虑权重</p><p>weighs = distance 表示考虑距离的权重</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">knn_clf = KNeighborsClassifier(n_neighbors=3 , weights = &apos;distance&apos;)</span><br></pre></td></tr></table></figure><p><strong>3. p ：表示选择的距离类型；只有当 weights = ‘distance’ 时，p才有意义；</strong></p><p>p = 1 表示选择曼哈顿距离</p><p>p = 2 表示选择欧拉距离（默认）</p><p>p &gt;=3 表示选择其他距离</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">knn_clf = KNeighborsClassifier(n_neighbors=3 , weights = &apos;distance&apos; , p = 1)</span><br></pre></td></tr></table></figure><p><strong>4. KNN算法还有其他超参数，暂时不考虑</strong></p><p>具体可以参考：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html</a></p><h2 id="GRID-SEARCH-网格搜索"><a href="#GRID-SEARCH-网格搜索" class="headerlink" title="GRID SEARCH 网格搜索"></a>GRID SEARCH 网格搜索</h2><p><strong>1. 创建KNN实例，设置需要搜寻的超参数格式，用字典的形式表示</strong></p><p><strong><strong>*字典的键 表示参数的名称 ； 对应的值放在列表中，表示需要搜寻的参数值*</strong></strong></p><p><img src="https://www.freesion.com/images/1/8393acb28450a43af3f02c4d7e585731.png" alt="img"></p><p><strong>2. 用GridSearchCV 来网格搜索</strong></p><p><img src="https://www.freesion.com/images/710/484692939f71989b1c3609b2f032f53e.png" alt="img"></p><p><strong>3. fit 结束后</strong></p><p>调用 .best_estimator_ ，可以返回最佳的分类器</p><p>调用 .best_score_ ， 可以返回最佳分类器对应的准确度</p><p>调用 .best_params_ ，可以返回最佳分类器对应的参数</p><p><img src="https://www.freesion.com/images/683/1792b7676810ed8fc89ba5abccccc453.png" alt="img"></p><p><strong>4. GridsearchCV 中的准确度（score）采用的是交叉验证（Cross-validation）得来的分数；不是通过 test数据集验证；</strong></p><h2 id="其他超参数：N-JOBS-和-VERBOSE"><a href="#其他超参数：N-JOBS-和-VERBOSE" class="headerlink" title="其他超参数：N_JOBS 和 VERBOSE"></a>其他超参数：N_JOBS 和 VERBOSE</h2><p>n_jobs 参数，表示为计算机分配几个核来并行执行搜索 ， n_jobs = -1 表示计算机有几个核就分配几个；</p><p>verbose 参数，表示在搜索的过程中 输出过程， 参数为整数，越大表示输出的内容月详细</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">grid_search = GridSearchCV(knn_clf,param_grid,n_jobs = <span class="number">-1</span>,verbose=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">grid_search.fit(X_train,y_train)</span><br><span class="line">Fitting <span class="number">3</span> folds <span class="keyword">for</span> each of <span class="number">60</span> candidates, totalling <span class="number">180</span> fits</span><br><span class="line">[Parallel(n_jobs=<span class="number">-1</span>)]: Done  <span class="number">17</span> tasks      | elapsed:   <span class="number">10.8</span>s</span><br><span class="line">[Parallel(n_jobs=<span class="number">-1</span>)]: Done  <span class="number">90</span> tasks      | elapsed:   <span class="number">35.6</span>s</span><br><span class="line">Wall time: <span class="number">1</span>min <span class="number">14</span>s</span><br><span class="line">[Parallel(n_jobs=<span class="number">-1</span>)]: Done <span class="number">180</span> out of <span class="number">180</span> | elapsed:  <span class="number">1.2</span>min finished</span><br></pre></td></tr></table></figure>]]></content>
     
