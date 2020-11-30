@@ -82,6 +82,27 @@
   
   <entry>
     <title></title>
+    <link href="http://blog.imlch.cn/2020/10/17/PWN%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://blog.imlch.cn/2020/10/17/PWN介绍/</id>
+    <published>2020-10-17T10:39:10.841Z</published>
+    <updated>2020-11-30T02:35:26.338Z</updated>
+    
+    <content type="html"><![CDATA[<p>Pwn是一个黑客语法的俚语词 ，是指攻破设备或者系统 。发音类似“砰”，对黑客而言，这就是成功实施黑客攻击的声音——砰的一声，被“黑”的电脑或手机就被你操纵。以上是从百度百科上面抄的简介，而我个人理解的话，应该就是向目标发送特定的数据，使得其执行本来不会执行的代码，前段时间爆发的永恒之蓝等病毒其实也算得上是pwn的一种。</p><p>pwnable.kr</p><p>pwnable.tw</p><h2 id="pwn介绍"><a href="#pwn介绍" class="headerlink" title="pwn介绍"></a>pwn介绍</h2><p>CTF pwn中的目标是拿到flag，一般是在linux平台下通过二进制/系统调用等方式编写漏洞利用脚本exp来获取对方服务器的shell，然后get到flag</p><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>长亭安全：<a href="https://zhuanlan.zhihu.com/p/25816426" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25816426</a></p><h2 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h2><ul><li>汇编语言，函数调用约定，大小端，函数栈帧</li><li>python语言，gdb调试，IDA pro分析</li><li>linux相关：32位与64位，各类防护机制（NX，ASLR，Canary，Relro），ELF文件格式，系统调用，shell命令</li><li>编译，链接，装载，执行</li></ul><h2 id="常见漏洞简介"><a href="#常见漏洞简介" class="headerlink" title="常见漏洞简介"></a>常见漏洞简介</h2><ul><li>缓冲区溢出(Buffer overflow)</li><li>栈溢出，堆溢出，bss溢出等</li><li>整数溢出(Integer overflow)</li><li>整数的加减乘法</li><li>有符号与无符号的转换</li><li>整数溢出一般可以转换成其它漏洞</li><li>格式化字符串(Format string)</li><li>printf(s)，sprint f(s)，fprintf(s)可以修改地址也可以用来leak信息</li><li>使用后释放(Use-after-free)</li><li>释放掉的内存可能会被重新分配，释放后使用会导致重新分配的内存被旧的使用所改写</li><li>Double free是一种特殊的UAF</li></ul><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul><li>IDA</li><li>pro</li><li>gdb</li><li>pwntools</li><li>zio</li><li>peda</li><li>readelf</li><li>ropgadget</li><li>string</li><li>objdump</li></ul><h2 id="利用方法"><a href="#利用方法" class="headerlink" title="利用方法"></a>利用方法</h2><ul><li><p>注入代码 </p></li><li><ul><li>溢出后在栈上执行代码</li></ul></li><li><p>伪造函数 </p></li><li><ul><li>修改.got.plt地址，替换掉正常函数</li><li>布置gadget将ret地址指向libc中的其它函数</li></ul></li></ul><h2 id="学习网站"><a href="#学习网站" class="headerlink" title="学习网站"></a>学习网站</h2><p>如何开始你的CTF之旅</p><p>PWN总结</p><p>p4-team</p><p>uaf</p><p>ddaa</p><p>二进制漏洞学习</p><p>sploitfun</p><p>CTF Writeup Github</p><p>pwnable.kr</p><p>pwnable.tw</p><p>ROPemporium</p><h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><p>《有趣的二进制》<br>《深入理解计算机系统》<br>《程序员的自我修养》<br>《深入理解Linux内核》</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Pwn是一个黑客语法的俚语词 ，是指攻破设备或者系统 。发音类似“砰”，对黑客而言，这就是成功实施黑客攻击的声音——砰的一声，被“黑”的电脑或手机就被你操纵。以上是从百度百科上面抄的简介，而我个人理解的话，应该就是向目标发送特定的数据，使得其执行本来不会执行的代码，前段时间
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
     <link href="http://blog.imlch.cn/2020/10/15/KNN%E7%9A%84%E8%B6%85%E5%8F%82%E6%95%B0/"/>
     <id>http://blog.imlch.cn/2020/10/15/KNN的超参数/</id>
     <published>2020-10-15T15:17:17.312Z</published>
