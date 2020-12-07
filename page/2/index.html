@@ -250,6 +250,61 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-二叉树解题模板" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/09/19/二叉树解题模板/" class="article-date">
+      <time datetime="2020-09-19T11:22:03.869Z" itemprop="datePublished">2020-09-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>##二叉树基本定义</p>
+<p>​    <img src="https://upload-images.jianshu.io/upload_images/7043118-7c9318a6f5c1349d.png?imageMogr2/auto-orient/strip|imageView2/2/w/652/format/webp" alt="img"></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>二叉树是n(n&gt;=0)个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树组成</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>1）每个结点最多有两颗子树<br>2）左子树和右子树是有顺序的，次序不能任意颠倒。<br>3）即使树中某结点只有一棵子树，也要区分它是左子树还是右子树</p>
+<h3 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#判断当前节点是否为空</span></span><br><span class="line"><span class="comment">#执行当前节点操作</span></span><br><span class="line"><span class="comment">#执行左右子树操作</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-前序遍历"><a href="#1-前序遍历" class="headerlink" title="1.前序遍历"></a><strong>1.前序遍历</strong></h3><p>前序遍历执行的是中左右的遍历原则，即先遍历中间的根节点，然后左节点，最后右节点。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">preorderTraversal</span><span class="params">(root)</span>:</span></span><br><span class="line">    tree = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node: <span class="keyword">return</span> </span><br><span class="line">        tree.append(node.val)</span><br><span class="line">        helper(node.left)</span><br><span class="line">        helper(node.right)</span><br><span class="line">    helper(root)</span><br><span class="line">    <span class="keyword">return</span> tree</span><br></pre></td></tr></table></figure>
+<h3 id="2-中序遍历"><a href="#2-中序遍历" class="headerlink" title="2.中序遍历"></a><strong>2.中序遍历</strong></h3><p>中序遍历执行的是左中右的遍历原则，即先遍历中间的左节点，然后中间节点，最后右节点</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">innerorderTraversal</span><span class="params">(root)</span>:</span></span><br><span class="line">    tree = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node: <span class="keyword">return</span> </span><br><span class="line">        helper(node.left)</span><br><span class="line">        tree.append(node.val)</span><br><span class="line">        helper(node.right)</span><br><span class="line">    helper(root)</span><br><span class="line">    <span class="keyword">return</span> tree</span><br></pre></td></tr></table></figure>
+<h3 id="3-后序遍历"><a href="#3-后序遍历" class="headerlink" title="3.后序遍历"></a><strong>3.后序遍历</strong></h3><p>后序遍历执行的是左右中的遍历原则，即先遍历中间的左节点，然后右节点，最后中节点。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">postorderTraversal</span><span class="params">(root)</span>:</span></span><br><span class="line">    tree = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node: <span class="keyword">return</span> </span><br><span class="line">        helper(node.left)</span><br><span class="line">        helper(node.right)</span><br><span class="line">        tree.append(node.val)</span><br><span class="line">    helper(root)</span><br><span class="line">    <span class="keyword">return</span> tree</span><br></pre></td></tr></table></figure>
+<h3 id="4-总结规律"><a href="#4-总结规律" class="headerlink" title="4.总结规律"></a>4.总结规律</h3><p>基于以上代码可见，二叉树的遍历基本的代码框架如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Traversal</span><span class="params">(root)</span>:</span></span><br><span class="line">    tree = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(node)</span>:</span></span><br><span class="line">        <span class="comment">#判断当前节点是否为空</span></span><br><span class="line">        <span class="comment">#执行当前节点操作</span></span><br><span class="line">        <span class="comment">#执行左右子树操作</span></span><br><span class="line">    helper(root)</span><br><span class="line">    <span class="keyword">return</span> tree</span><br></pre></td></tr></table></figure>
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ServerlessSSR" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
